@@ -7,6 +7,8 @@ import 'package:portfolio/app/section/projects/project.dart';
 import 'package:portfolio/app/section/projects/project_desktop.dart';
 import 'package:portfolio/app/section/services/service.dart';
 import 'package:portfolio/app/section/skills/skills_page.dart';
+import 'package:portfolio/core/constants/app_consts.dart';
+import 'package:portfolio/core/constants/assets.dart';
 import 'package:portfolio/core/utils/colors.dart';
 
 List<Widget> body = [
@@ -17,6 +19,19 @@ List<Widget> body = [
   ProjectPage(),
   ContactPage(),
   // FooterDesktop(),
+];
+
+// Skills
+List<String> techStack = [
+  Assets.flutter,
+  Assets.firebase,
+  Assets.dart,
+  Assets.html,
+  Assets.css,
+  Assets.javascript,
+  Assets.figma,
+  Assets.vscode,
+  Assets.andoridStudio
 ];
 
 const heading2 =

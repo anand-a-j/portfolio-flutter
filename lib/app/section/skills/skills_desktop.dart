@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:portfolio/app/utils/utils.dart';
 import 'package:portfolio/core/utils/colors.dart';
 
 import '../../../core/constants/app_consts.dart';
@@ -55,6 +56,80 @@ class SkillsDesktop extends StatelessWidget {
   }
 }
 
+
+class InfiniteCardScroll extends StatefulWidget {
+  @override
+  _InfiniteCardScrollState createState() => _InfiniteCardScrollState();
+}
+
+class _InfiniteCardScrollState extends State<InfiniteCardScroll>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _controller;
+  late final ScrollController _scrollController;
+
+  double scrollSpeed = 60; 
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController = ScrollController();
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 1000), 
+    )..addListener(_scrollListener);
+
+    _controller.repeat(); 
+  }
+
+  void _scrollListener() {
+    if (_scrollController.hasClients) {
+      double maxScroll = _scrollController.position.maxScrollExtent;
+      double currentScroll = _scrollController.offset;
+      double delta = scrollSpeed * _controller.deltaTime;
+
+      if (currentScroll + delta >= maxScroll) {
+        _scrollController.jumpTo(0); // loop back
+      } else {
+        _scrollController.jumpTo(currentScroll + delta);
+      }
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 74,
+      child: ListView.builder(
+        controller: _scrollController,
+        scrollDirection: Axis.horizontal,
+        physics: NeverScrollableScrollPhysics(),
+        itemCount: techStack.length,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: SvgPicture.asset(
+              techStack[index], // Ensure this asset is defined
+              height: 74,
+              width: 74,
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
+
+extension on AnimationController {
+  double get deltaTime => 1 / 60; // assume 60 FPS
+}
+
 class ContinuousScrollPage extends StatefulWidget {
   @override
   _ContinuousScrollPageState createState() => _ContinuousScrollPageState();
@@ -81,7 +156,16 @@ class _ContinuousScrollPageState extends State<ContinuousScrollPage> {
         itemBuilder: (context, index) {
           // Loop items using modulo
           final realIndex = index % _itemCount;
-
+          return Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 10,
+            ),
+            child: SvgPicture.asset(
+              Assets.flutter,
+              height: 74,
+              width: 74,
+            ),
+          );
           return Container(
             width: 140,
             margin: const EdgeInsets.all(8),

@@ -14,6 +14,13 @@ class Assets {
   static const github = '${_svg}github.svg';
   static const flutter = '${_svg}flutter.svg';
   static const firebase = '${_svg}firebase.svg';
+  static const dart = '${_svg}dart.svg';
+  static const html = '${_svg}html.svg';
+  static const css = '${_svg}css.svg';
+  static const javascript = '${_svg}css.svg';
+  static const figma = '${_svg}figma.svg';
+  static const vscode = '${_svg}vscode.svg';
+  static const andoridStudio = '${_svg}andorid_studio.svg';
 
   // Images
   static const aboutMe = '${_img}about_me.png';

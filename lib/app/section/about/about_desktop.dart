@@ -75,10 +75,10 @@ class AboutDesktop extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 40),
           Stack(
             children: [
-              ContinuousScrollPage(),
+              InfiniteCardScroll(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
