@@ -15,13 +15,12 @@ class ContactPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.sizeOf(context).width;
-    double height = MediaQuery.sizeOf(context).height;
+
     return Container(
       margin: EdgeInsets.symmetric(
         horizontal: 10,
         vertical: width > 1024 ? 0 : 10,
       ),
-      height: height / 2,
       width: width,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -31,12 +30,13 @@ class ContactPage extends StatelessWidget {
           Text(
             "Grab a ☕ & Let's Talk",
             style: TextStyle(
+              fontFamily: "Denton",
               fontSize: 48,
-              color: Colors.white,
               fontWeight: FontWeight.w700,
+              color: Colors.white,
             ),
           ),
-          const SizedBox(height: 15),
+          const SizedBox(height: 5),
           Text(
             "Feel free to reach out to me for any questions or opportunities!",
             style: body1,

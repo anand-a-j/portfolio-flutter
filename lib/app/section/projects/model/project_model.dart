@@ -45,8 +45,19 @@ List<ProjectModel> projects = [
     ],
   ),
   ProjectModel(
-    title: 'Porfolio Website',
-    description: 'build responsive portfolio website using flutter',
+    title: 'Personal Portfolio',
+    description:
+        'This Flutter application is a versatile TODO list manager with robust state management using the Provider package and persistent data storage using SQLite via the Sqflite package. The app allows users to effortlessly create, update, read, and delete tasks, providing a seamless experience for organizing their daily activities.',
+    imageUrl: '',
+    stackUrls: [
+      Assets.flutter,
+      Assets.firebase,
+    ],
+  ),
+  ProjectModel(
+    title: 'Habit Tracker',
+    description:
+        'This Flutter application is a versatile TODO list manager with robust state management using the Provider package and persistent data storage using SQLite via the Sqflite package. The app allows users to effortlessly create, update, read, and delete tasks, providing a seamless experience for organizing their daily activities.',
     imageUrl: '',
     stackUrls: [
       Assets.flutter,

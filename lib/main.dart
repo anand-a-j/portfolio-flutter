@@ -7,6 +7,7 @@ import 'package:portfolio/core/providers/scroll_provider.dart';
 import 'package:portfolio/core/utils/theme.dart';
 import 'package:provider/provider.dart';
 import 'app/section/main/controller/main_section_provider.dart';
+import 'core/theme/app_theme.dart';
 
 void main() {
   runApp(MultiProvider(
@@ -29,7 +30,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Portfolio',
       themeMode: ThemeMode.dark,
-      theme: buildDarkTheme(),
       darkTheme: buildDarkTheme(),
       debugShowCheckedModeBanner: false,
       home: MainSection(),

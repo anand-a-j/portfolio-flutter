@@ -1,6 +1,8 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/section/projects/model/project_model.dart';
 import 'package:portfolio/app/utils/utils.dart';
+import '../../../core/widgets/title_rich_text.dart';
 import 'widgets/project_card_widget.dart';
 
 class ProjectDesktop extends StatelessWidget {
@@ -18,21 +20,22 @@ class ProjectDesktop extends StatelessWidget {
         // mainAxisAlignment: MainAxisAlignment.center,
         // crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Center(
-            child: Text(
-              "Projects",
-              style: heading2,
-            ),
+          const SizedBox(height: 50),
+          TitleRichText(
+            titleOne: "My",
+            titleTwo: "Projects",
           ),
-          SizedBox(height: 70),
+          const SizedBox(height: 70),
           GridView.builder(
             shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
             itemCount: projects.length,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: width > 1350 ? 4 : 3,
-                mainAxisSpacing: 20,
-                crossAxisSpacing: 20,
-                childAspectRatio: width > 1350 ? 0.75 : 0.80),
+              crossAxisCount: width > 1350 ? 4 : 3,
+              mainAxisSpacing: 20,
+              crossAxisSpacing: 20,
+              childAspectRatio: width > 1350 ? 0.75 : 0.78,
+            ),
             itemBuilder: (context, index) {
               return ProjectCardWidget(index: index);
             },

@@ -29,8 +29,10 @@ class ProjectCardWidget extends StatelessWidget {
         },
         child: AnimatedContainer(
           transform: Matrix4.identity()
-            ..translate(0.0,
-                animate.isHover && animate.currentIndex == index ? -20.0 : 0.0),
+            ..translate(
+              0.0,
+              animate.isHover && animate.currentIndex == index ? -20.0 : 0.0,
+            ),
           duration: const Duration(milliseconds: 800),
           curve: Curves.easeInOutCubic,
           padding: const EdgeInsets.all(10),
@@ -54,27 +56,49 @@ class ProjectCardWidget extends StatelessWidget {
                   borderRadius: BorderRadius.circular(14),
                   image: DecorationImage(
                       image: NetworkImage(
-                          "https://images.unsplash.com/photo-1534670007418-fbb7f6cf32c3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHVpJTIwdXh8ZW58MHx8MHx8fDA%3D"),
+                        "https://images.unsplash.com/photo-1534670007418-fbb7f6cf32c3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHVpJTIwdXh8ZW58MHx8MHx8fDA%3D",
+                      ),
                       fit: BoxFit.cover),
                 ),
               ),
               const SizedBox(height: 10),
               Text(
                 projects[index].title,
-                style: Theme.of(context).textTheme.titleMedium,
+                style: TextStyle(
+                  fontSize: 16,
+                  color: onPrimaryContainer,
+                ),
                 textScaler: TextScaler.linear(textScaleFactor(context)),
               ),
               const SizedBox(height: 10),
-              SizedBox(
-                width: double.infinity,
-                child: Text(
-                  projects[index].description,
-                  style: Theme.of(context).textTheme.bodyMedium,
-                  textScaler: TextScaler.linear(textScaleFactor(context)),
-                  maxLines: 4,
-                  overflow: TextOverflow.ellipsis,
+              Text(
+                projects[index].description,
+                style: TextStyle(
+                  fontSize: 14,
+                  color: onPrimaryContainerDim,
                 ),
+                textScaler: TextScaler.linear(textScaleFactor(context)),
+                maxLines: 3,
+                overflow: TextOverflow.ellipsis,
               ),
+              const SizedBox(height: 30),
+              Container(
+                height: 40,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(14),
+                  color: Colors.black,
+                ),
+                child: Center(
+                  child: Text(
+                    "View Project",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              )
             ],
           ),
         ),

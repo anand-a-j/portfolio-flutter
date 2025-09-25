@@ -12,20 +12,21 @@ class AboutDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.sizeOf(context).width;
-    double height = MediaQuery.sizeOf(context).height;
+    // double height = MediaQuery.sizeOf(context).height;
     return Container(
-      height: height,
+      // height: height,
       width: width,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
+          const SizedBox(height: 50),
           TitleRichText(
             titleOne: "About",
             titleTwo: "Me",
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 70),
           Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: 150,

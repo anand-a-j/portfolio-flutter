@@ -31,7 +31,8 @@ List<String> techStack = [
   Assets.javascript,
   Assets.figma,
   Assets.vscode,
-  Assets.andoridStudio
+  Assets.andoridStudio,
+  Assets.nodejs,
 ];
 
 const heading2 =

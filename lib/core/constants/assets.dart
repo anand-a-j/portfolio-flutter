@@ -21,6 +21,7 @@ class Assets {
   static const figma = '${_svg}figma.svg';
   static const vscode = '${_svg}vscode.svg';
   static const andoridStudio = '${_svg}andorid_studio.svg';
+  static const nodejs = '${_svg}node_js.svg';
 
   // Images
   static const aboutMe = '${_img}about_me.png';

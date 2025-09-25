@@ -13,10 +13,14 @@ const Color card = Color(0xff171721);
 const Color cardLight = Color(0xff191924);
 
 // card
-const Color primaryContainer = Color(0xff0f0f0f);
-const Color primaryContainerBorder = Color(0xff3d3d3d);
-const Color onPrimaryContainer = Color(0xfff6f6f6);
-const Color onPrimaryContainerDim = Color(0xffd1d1d1);
+const Color primaryContainer = Color(0xff161619);
+const Color primaryContainerBorder = Color(0xff363636);
+const Color onPrimaryContainer = Color(0xfff4f4f4);
+const Color onPrimaryContainerDim = Color(0xff8b8b92);
+// const Color primaryContainer = Color(0xff101010);
+// const Color primaryContainerBorder = Color(0xff232323);
+// const Color onPrimaryContainer = Color(0xfff8f8f8);
+// const Color onPrimaryContainerDim = Color(0xff7a7979);
 
 const Gradient buttonGradient = LinearGradient(
   begin: Alignment.topRight,
