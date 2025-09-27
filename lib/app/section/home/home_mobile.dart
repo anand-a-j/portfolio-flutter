@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/section/home/widgets/home_button.dart';
+import 'package:portfolio/core/extension/color_extension.dart';
+import 'package:portfolio/core/extension/textstyle_extension.dart';
 import 'package:portfolio/core/utils/functions.dart';
-import 'package:portfolio/core/constants/strings.dart';
-import 'package:lottie/lottie.dart';
+
+import '../../../core/constants/app_consts.dart';
+import '../../../core/constants/assets.dart';
+import '../../../core/theme/app_text_theme.dart';
+import '../../../core/utils/strings.dart';
+
+import '../../../core/widgets/animated_gradient_text.dart';
+import 'widgets/star_background.dart';
 
 class HomeMobile extends StatelessWidget {
   const HomeMobile({super.key});
@@ -12,91 +20,71 @@ class HomeMobile extends StatelessWidget {
     double width = MediaQuery.sizeOf(context).width;
     double height = MediaQuery.sizeOf(context).height;
 
-    return Container(
-      child: Column(
-        children: [
-          Stack(
-            children: [
-              // Container(
-              //   height: height - 150,
-              //   width: width,
-              //   child: LottieBuilder.asset(
-              //     'assets/lottie/spacebg.json',
-              //     height: height - 300,
-              //     width: width,
-              //     fit: BoxFit.cover,
-              //   ),
-              // ),
-              Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                height: height,
-                width: width,
-                child: Center(
-                  child: Column(
-                    children: [
-                      Container(
-                        height: width * 0.7,
-                        width: width * 0.7,
-                        margin: const EdgeInsets.symmetric(horizontal: 15,vertical: 15),
-                        decoration: BoxDecoration(
-                       
-                            // image: DecorationImage(
-                            //   image: NetworkImage(
-                            //       "https://images.unsplash.com/photo-1445233566136-a2a4e2c38bc2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YmFja2dyb3VuZCUyMHNwYWNlfGVufDB8fDB8fHww"),
-                            //   fit: BoxFit.cover,
-                            // ),
-                            ),
-                        child: Center(
-                          child: LottieBuilder.asset(
-                            'assets/lottie/coder.json',
-                            fit: BoxFit.contain,
-                          ),
-                        ),
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        Positioned.fill(
+          child: StarField(baseStars: 150, twinkle: true),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: AppConsts.pMobileSideHorz,
+            vertical: AppConsts.pMobileVertical,
+          ),
+          child: SizedBox(
+            height: height,
+            width: width,
+            child: Center(
+              child: Column(
+                spacing: AppConsts.pLarge,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  CircleAvatar(
+                    backgroundColor: Colors.grey,
+                    backgroundImage: AssetImage(Assets.me),
+                    radius: 50,
+                  ),
+                  Text(
+                    hello,
+                    style: context.titleMedium,
+                  ),
+                  HomeHeroGridientText(
+                    title: heroTitle,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 5),
+                    child: Text(
+                      heroSubtitleMobile,
+                      textAlign: TextAlign.center,
+                      style: AppTextTheme.heroSubtitle.copyWith(
+                        fontSize: mobileFontSize(context: context),
+                        color: context.brandColors.onPrimaryContainerDim,
                       ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Hi, I am Anand A J",
-                            style: Theme.of(context).textTheme.displayMedium,
-                            textScaler:
-                                TextScaler.linear(textScaleFactor(context)),
-                          ),
-                          SizedBox(height: width * 0.015),
-                          Text(
-                            "Flutter Developer",
-                            style: Theme.of(context).textTheme.headlineMedium,
-                            textAlign: TextAlign.justify,
-                            textScaler:
-                                TextScaler.linear(textScaleFactor(context)),
-                          ),
-                          SizedBox(height: width * 0.01),
-                          Container(                        
-                            width: double.infinity,
-                             margin: const EdgeInsets.symmetric(horizontal: 50),
-                            child: Text(
-                              aboutMe,
-                              style: Theme.of(context).textTheme.titleMedium,
-                              textScaler:
-                                  TextScaler.linear(textScaleFactor(context)),
-                              textAlign: TextAlign.center,
-                              maxLines: 3,
-                            ),
-                          ),
-                           SizedBox(height: height*0.05),
-                
-                        ],
+                    ),
+                  ),
+                  Column(
+                    spacing: AppConsts.pMedium,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      HomeButton(
+                        title: aboutMe,
+                        onTap: () {},
+                      ),
+                      HomeButton(
+                        title: letsConnect,
+                        onTap: () {},
                       ),
                     ],
                   ),
-                ),
+                ],
               ),
-            ],
+            ),
           ),
-        ],
-      ),
+        )
+      ],
     );
   }
 }

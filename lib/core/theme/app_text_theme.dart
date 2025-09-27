@@ -89,5 +89,7 @@ class AppTextTheme with AppColor {
     fontWeight: FontWeight.w400,
     fontSize: 16,
     color: onPrimaryContainer,
+    letterSpacing: 0,
+    wordSpacing: 0,
   );
 }

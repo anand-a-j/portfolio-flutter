@@ -15,25 +15,25 @@ class FooterNavigationButtons extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        CustomAppBarButton(
-          title: 'Home',
-          onPressed: () => scrollProvider.jumpTo(0),
-        ),
-        SizedBox(width: width * 0.006),
-        CustomAppBarButton(
-          title: 'Services',
-          onPressed: () => scrollProvider.jumpTo(1),
-        ),
-     SizedBox(width: width * 0.006),
-        CustomAppBarButton(
-          title: 'Projects',
-          onPressed: () => scrollProvider.jumpTo(2),
-        ),
-       SizedBox(width: width * 0.006),
-        CustomAppBarButton(
-          title: 'Contacts',
-          onPressed: () => scrollProvider.jumpTo(3),
-        ),
+        //     AppBarHoverButton(
+        //       title: 'Home',
+        //       onPressed: () => scrollProvider.jumpTo(0),
+        //     ),
+        //     SizedBox(width: width * 0.006),
+        //     AppBarHoverButton(
+        //       title: 'Services',
+        //       onPressed: () => scrollProvider.jumpTo(1),
+        //     ),
+        //  SizedBox(width: width * 0.006),
+        //     AppBarHoverButton(
+        //       title: 'Projects',
+        //       onPressed: () => scrollProvider.jumpTo(2),
+        //     ),
+        //    SizedBox(width: width * 0.006),
+        //     AppBarHoverButton(
+        //       title: 'Contacts',
+        //       onPressed: () => scrollProvider.jumpTo(3),
+        //     ),
       ],
     );
   }

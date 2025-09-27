@@ -19,7 +19,7 @@ class SkillsDesktop extends StatelessWidget {
       width: width,
       // color: Colors.red,
       margin: const EdgeInsets.symmetric(
-        horizontal: AppConsts.pWebSide,
+        horizontal: AppConsts.pWebSideHorz,
         // vertical: AppConsts.pWebVeritical,
       ),
       child: Column(

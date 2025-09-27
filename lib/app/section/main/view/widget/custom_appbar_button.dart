@@ -1,55 +1,39 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/app/section/main/controller/main_section_provider.dart';
-import 'package:portfolio/core/utils/colors.dart';
-import 'package:provider/provider.dart';
+import 'package:portfolio/core/extension/color_extension.dart';
+import 'package:portfolio/core/extension/textstyle_extension.dart';
+import 'package:portfolio/core/theme/app_color.dart';
+import 'package:portfolio/core/widgets/gradient_text.dart';
 
-class CustomAppBarButton extends StatelessWidget {
+class AppBarHoverButton extends StatefulWidget {
   final String title;
-  final Function()? onPressed;
-  const CustomAppBarButton(
-      {super.key, required this.title, required this.onPressed});
+  final VoidCallback? onTap;
+  const AppBarHoverButton({super.key, required this.title, this.onTap});
+
+  @override
+  State<AppBarHoverButton> createState() => _AppBarHoverButtonState();
+}
+
+class _AppBarHoverButtonState extends State<AppBarHoverButton> {
+  bool _hovering = false;
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<MainSectionProvider>(
-        builder: (context, hoverController, _) {
-      return MouseRegion(
-        onEnter: (event) => hoverController.handleHover(true),
-        onExit: (event) => hoverController.handleHover(false),
-        child: Container(
-          margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
-          child: TextButton(
-            onPressed: onPressed,
-            style: ButtonStyle(
-              // foregroundColor: MaterialStateProperty.all<Color>(
-              //   hoverController.isHover ? primaryColor : kwhite
-              // ),
-              // padding:  MaterialStateProperty.all<EdgeInsetsGeometry>(
-              //      EdgeInsets.symmetric(vertical: 0,horizontal: 10)
-              //   ),
-              animationDuration: const Duration(milliseconds: 200),
-              shape: MaterialStateProperty.resolveWith<OutlinedBorder>(
-                (Set<MaterialState> states) {
-                  if (states.contains(MaterialState.hovered)) {
-                    return RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                      side: const BorderSide(color: primaryColor),
-                    );
-                  }
-                  return RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  );
-                },
-              ),
-            ),
-            child: Text(
-              title,
-              style: const TextStyle(
-                  fontFamily: 'Poppins', fontSize: 14, color: kwhite),
-            ),
+    return MouseRegion(
+      onEnter: (_) => setState(() => _hovering = true),
+      onExit: (_) => setState(() => _hovering = false),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 5),
+        child: GestureDetector(
+          onTap: widget.onTap,
+          child: GradientText(
+            text: widget.title,
+            gradient: AppColor.primaryGradient,
+            isGradient: _hovering,
+            color: context.onSecondary,
+            style: context.bodyMedium,
           ),
         ),
-      );
-    });
+      ),
+    );
   }
 }

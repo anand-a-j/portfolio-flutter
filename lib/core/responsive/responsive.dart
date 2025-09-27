@@ -34,3 +34,10 @@ class Responsive extends StatelessWidget {
     }
   }
 }
+
+
+extension ResponsiveExt on BuildContext {
+  bool get isMobile => Responsive.isMobile(this);
+  bool get isTablet => Responsive.isTablet(this);
+  bool get isDesktop => Responsive.isDesktop(this);
+}

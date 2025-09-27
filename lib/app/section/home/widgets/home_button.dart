@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/core/extension/color_extension.dart';
 import 'package:portfolio/core/providers/animated_provider.dart';
+import 'package:portfolio/core/responsive/responsive.dart';
 import 'package:portfolio/core/utils/colors.dart';
 import 'package:provider/provider.dart';
 
@@ -31,6 +33,9 @@ class _HomeButtonState extends State<HomeButton> {
       },
       borderRadius: BorderRadius.circular(50),
       child: AnimatedContainer(
+        constraints: BoxConstraints(
+          maxWidth: context.isMobile ? 250 : double.infinity,
+        ),
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOutCubic,
         padding: const EdgeInsets.symmetric(
@@ -39,10 +44,10 @@ class _HomeButtonState extends State<HomeButton> {
         ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(50),
-          color: !_isHover ? secondaryColor : onPrimary,
+          color: !_isHover ? context.secondary : context.onSecondary,
           border: Border.all(
             width: 1,
-            color: onPrimary,
+            color: context.brandColors.onPrimaryContainerDim,
           ),
         ),
         child: Center(
@@ -50,7 +55,7 @@ class _HomeButtonState extends State<HomeButton> {
             widget.title,
             style: TextStyle(
               fontSize: 16,
-              color: _isHover ? secondaryColor : onPrimary,
+              color: _isHover ? context.onSecondary : context.secondary,
             ),
           ),
         ),

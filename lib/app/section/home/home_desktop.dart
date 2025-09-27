@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/app/section/home/widgets/home_button.dart';
 import 'package:portfolio/core/constants/app_consts.dart';
 import 'package:portfolio/core/constants/assets.dart';
+import 'package:portfolio/core/extension/textstyle_extension.dart';
 import 'package:portfolio/core/theme/app_text_theme.dart';
 import 'package:portfolio/core/utils/colors.dart';
+import 'package:portfolio/core/utils/functions.dart';
+import 'package:portfolio/core/utils/strings.dart';
 
 import '../../../core/widgets/animated_gradient_text.dart';
 import 'widgets/star_background.dart';
@@ -20,11 +23,11 @@ class HomeDesktop extends StatelessWidget {
       alignment: Alignment.center,
       children: [
         Positioned.fill(
-          child: StarField(baseStars: 100, twinkle: true),
+          child: StarField(baseStars: 120, twinkle: true),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(
-            horizontal: AppConsts.pWebSide,
+            horizontal: AppConsts.pWebSideHorz,
             vertical: 50,
           ),
           child: SizedBox(
@@ -43,42 +46,34 @@ class HomeDesktop extends StatelessWidget {
                     radius: 50,
                   ),
                   Text(
-                    "Hello, I'm Anand 👋",
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500,
-                      fontFamily: "Poppins",
-                    ),
+                    hello,
+                    style: context.titleMedium,
                   ),
-                  AnimateGradientText(
-                    title: "Crafting Flutter Apps.\nExploring Full-Stack.",
+                  HomeHeroGridientText(
+                    title: heroTitle,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 20,
-                    ),
+                  SizedBox(
+                    width: 860,
                     child: Text(
-                      "Flutter developer passionate about UI, performance, and app optimization.\nExpanding skills into backend, databases, and full-stack solutions.",
+                      heroSubtitle,
                       textAlign: TextAlign.center,
                       style: AppTextTheme.heroSubtitle.copyWith(
-                        fontSize: 20,
+                        fontSize: desktopFontSize(context: context),
                         color: onPrimaryContainerDim,
                       ),
                     ),
                   ),
-                  const SizedBox(height: 5),
                   Row(
                     spacing: AppConsts.pMedium,
                     mainAxisAlignment: MainAxisAlignment.center,
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       HomeButton(
-                        title: "About Me",
+                        title: aboutMe,
                         onTap: () {},
                       ),
                       HomeButton(
-                        title: "Let's connect",
+                        title: letsConnect,
                         onTap: () {},
                       ),
                     ],
