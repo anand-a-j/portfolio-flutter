@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/extension/color_extension.dart';
+import 'package:portfolio/core/extension/textstyle_extension.dart';
 import 'package:portfolio/core/providers/animated_provider.dart';
 import 'package:portfolio/core/responsive/responsive.dart';
 import 'package:portfolio/core/utils/colors.dart';
@@ -44,7 +45,7 @@ class _HomeButtonState extends State<HomeButton> {
         ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(50),
-          color: !_isHover ? context.secondary : context.onSecondary,
+          color: !_isHover ? context.onSecondary : context.secondary,
           border: Border.all(
             width: 1,
             color: context.brandColors.onPrimaryContainerDim,
@@ -53,8 +54,7 @@ class _HomeButtonState extends State<HomeButton> {
         child: Center(
           child: Text(
             widget.title,
-            style: TextStyle(
-              fontSize: 16,
+            style: context.bodyLarge.copyWith(
               color: _isHover ? context.onSecondary : context.secondary,
             ),
           ),

@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:portfolio/app/section/projects/model/project_model.dart';
-import 'package:portfolio/app/utils/utils.dart';
+import 'package:portfolio/core/extension/color_extension.dart';
+import 'package:portfolio/core/extension/textstyle_extension.dart';
 import 'package:portfolio/core/providers/animated_provider.dart';
-import 'package:portfolio/core/constants/assets.dart';
-import 'package:portfolio/core/utils/colors.dart';
 import 'package:portfolio/core/utils/functions.dart';
+import 'package:portfolio/core/utils/strings.dart' hide projects;
 import 'package:provider/provider.dart';
 
 class ProjectCardWidget extends StatelessWidget {
@@ -17,92 +16,101 @@ class ProjectCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var height = MediaQuery.sizeOf(context).height;
-    var width = MediaQuery.sizeOf(context).width;
-    return Consumer<AnimateProvider>(builder: (context, animate, _) {
-      return InkWell(
-        onTap: () {
-          animate.setIshover(true, index);
-        },
-        onHover: (value) {
-          animate.setIshover(value, index);
-        },
-        child: AnimatedContainer(
-          transform: Matrix4.identity()
-            ..translate(
-              0.0,
-              animate.isHover && animate.currentIndex == index ? -20.0 : 0.0,
+    final size = MediaQuery.sizeOf(context);
+
+// Scale image height relative to screen width
+    double imageHeight = (size.width * 0.24).clamp(140, 300);
+    return Consumer<AnimateProvider>(
+      builder: (context, animate, _) {
+        return InkWell(
+          onTap: () {
+            animate.setIshover(true, index);
+          },
+          onHover: (value) {
+            animate.setIshover(value, index);
+          },
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.easeInOutCubic,
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              color: context.brandColors.primaryContainer,
+              border: Border.all(
+                width: 1,
+                color: context.brandColors.primaryContainerBorder,
+              ),
+              // boxShadow: boxShadow,
             ),
-          duration: const Duration(milliseconds: 800),
-          curve: Curves.easeInOutCubic,
-          padding: const EdgeInsets.all(10),
-          width: width > 1024 ? null : width * 0.5,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            color: primaryContainer,
-            border: Border.all(
-              width: 1,
-              color: primaryContainerBorder,
-            ),
-            boxShadow: boxShadow,
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                height: width > 1024 ? width * 0.12 : width * 0.28,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(14),
-                  image: DecorationImage(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  height: imageHeight,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(14),
+                    image: DecorationImage(
                       image: NetworkImage(
                         "https://images.unsplash.com/photo-1534670007418-fbb7f6cf32c3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHVpJTIwdXh8ZW58MHx8MHx8fDA%3D",
                       ),
-                      fit: BoxFit.cover),
-                ),
-              ),
-              const SizedBox(height: 10),
-              Text(
-                projects[index].title,
-                style: TextStyle(
-                  fontSize: 16,
-                  color: onPrimaryContainer,
-                ),
-                textScaler: TextScaler.linear(textScaleFactor(context)),
-              ),
-              const SizedBox(height: 10),
-              Text(
-                projects[index].description,
-                style: TextStyle(
-                  fontSize: 14,
-                  color: onPrimaryContainerDim,
-                ),
-                textScaler: TextScaler.linear(textScaleFactor(context)),
-                maxLines: 3,
-                overflow: TextOverflow.ellipsis,
-              ),
-              const SizedBox(height: 30),
-              Container(
-                height: 40,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(14),
-                  color: Colors.black,
-                ),
-                child: Center(
-                  child: Text(
-                    "View Project",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      color: Colors.white,
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),
-              )
-            ],
+                const SizedBox(height: 10),
+                Text(
+                  projects[index].title,
+                  style: context.bodyLarge.copyWith(
+                    color: context.brandColors.onPrimaryContainer,
+                    fontSize: desktopFontSize(
+                      context: context,
+                      maxFontSize: 18,
+                      minFontSize: 12,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  projects[index].description,
+                  style: context.bodyMedium.copyWith(
+                    fontSize: desktopFontSize(
+                      context: context,
+                      maxFontSize: 16,
+                      minFontSize: 10,
+                    ),
+                    color: context.brandColors.onPrimaryContainerDim,
+                  ),
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                const Spacer(),
+                Container(
+                  height: 46,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    color: context.onSecondary,
+                    border: Border.all(
+                      width: 0.5,
+                      color: context.brandColors.primaryContainerBorder,
+                    ),
+                  ),
+                  child: Center(
+                    child: Text(
+                      viewProjectEn,
+                      style: context.bodyMedium.copyWith(
+                        fontWeight: FontWeight.w500,
+                        color: context.secondary,
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
           ),
-        ),
-      );
-    });
+        );
+      },
+    );
   }
 }

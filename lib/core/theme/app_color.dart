@@ -11,6 +11,10 @@ mixin AppColor {
   static const Color onPrimaryContainer = Color(0xfff4f4f4);
   static const Color onPrimaryContainerDim = Color(0xff8b8b92);
 
+  static const Color error = Color(0xffF44336); 
+  static const Color onError =
+      Color(0xffffffff); 
+
   static const primaryGradient = LinearGradient(
     colors: [
       Color(0xffBC3CD8),

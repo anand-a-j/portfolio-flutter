@@ -8,6 +8,17 @@ ThemeData buildDarkTheme() {
     textTheme: AppTextTheme.textTheme,
     fontFamily: "PlusJakartaSans",
     primaryColor: AppColor.primary,
+    colorScheme: ColorScheme(
+      primary: AppColor.primary,
+      onPrimary: AppColor.secondary,
+      secondary: AppColor.secondary,
+      onSecondary: AppColor.onSecondary,
+      brightness: Brightness.dark,
+      error: AppColor.error,
+      onError: AppColor.onError,
+      surface: AppColor.primaryContainer,
+      onSurface: AppColor.onPrimaryContainer,
+    ),
     extensions: [
       AppBrandColors(
         primaryContainer: AppColor.primaryContainer,

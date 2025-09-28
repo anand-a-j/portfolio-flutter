@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/constants/app_consts.dart';
 import 'package:portfolio/core/constants/assets.dart';
+import 'package:portfolio/core/extension/color_extension.dart';
+import 'package:portfolio/core/extension/textstyle_extension.dart';
+import 'package:portfolio/core/utils/functions.dart';
+import 'package:portfolio/core/utils/strings.dart';
 
 import '../../../core/utils/colors.dart';
 import '../../../core/widgets/title_rich_text.dart';
@@ -11,11 +15,10 @@ class AboutDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.sizeOf(context).width;
-    // double height = MediaQuery.sizeOf(context).height;
-    return Container(
-      // height: height,
-      width: width,
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        vertical: AppConsts.pWebVeritical,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -23,14 +26,13 @@ class AboutDesktop extends StatelessWidget {
         children: [
           const SizedBox(height: 50),
           TitleRichText(
-            titleOne: "About",
-            titleTwo: "Me",
+            titleOne: about,
+            titleTwo: me,
           ),
           const SizedBox(height: 70),
           Padding(
             padding: const EdgeInsets.symmetric(
-              horizontal: 150,
-              // vertical: AppConsts.pWebVeritical,
+              horizontal: AppConsts.pWebSideHorz,
             ),
             child: IntrinsicHeight(
               child: Row(
@@ -58,25 +60,27 @@ class AboutDesktop extends StatelessWidget {
                   Expanded(
                     flex: 2,
                     child: Text(
-                      """
-                      I’m a Flutter developer with over 2 years of experience building cross-platform mobile apps using Dart, Firebase, and REST APIs. I specialize in crafting responsive UIs, optimizing performance, and deploying polished apps to both Google Play Store and Apple App Store.
-                
-                      At Armino Technologies, I worked on real-world products like diet subscription platforms and POS systems, where I improved app performance by 40%, integrated GraphQL/REST APIs, and implemented scalable state management. I also handled multi-language support, third-party SDKs, and end-to-end app releases, ensuring reliable user experiences.
-                
-                      Beyond Flutter, I’m continuously expanding my skills into backend and full-stack development with Node.js, Express, and databases. My goal is to deliver complete, end-to-end solutions — from clean code and smooth UIs to scalable backends that power impactful applications.  
-                      """,
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.grey,
+                      aboutMeBody,
+                      style: context.titleSmall.copyWith(
+                        fontSize: desktopFontSize(
+                          context: context,
+                          maxFontSize: 20,
+                          minFontSize: 16,
+                        ),
+                        color: context.brandColors.onPrimaryContainerDim,
                       ),
-                      textAlign: TextAlign.start,
+                      // style: TextStyle(
+                      //   fontSize: 18,
+                      //   color: context.brandColors.onPrimaryContainerDim,
+                      // ),
+                      textAlign: TextAlign.justify,
                     ),
                   ),
                 ],
               ),
             ),
           ),
-          const SizedBox(height: 40),
+          const SizedBox(height: 70),
           Stack(
             children: [
               InfiniteCardScroll(),

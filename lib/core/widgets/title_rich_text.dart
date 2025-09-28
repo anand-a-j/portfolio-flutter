@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/core/extension/color_extension.dart';
+import 'package:portfolio/core/extension/textstyle_extension.dart';
 
 class TitleRichText extends StatelessWidget {
   const TitleRichText({
@@ -16,19 +18,27 @@ class TitleRichText extends StatelessWidget {
       textAlign: TextAlign.center,
       text: TextSpan(
         text: titleOne,
-        style: TextStyle(
+        style: context.headlineMedium.copyWith(
           fontSize: 36,
           color: Color(0xFFBABABA),
-          fontWeight: FontWeight.w600,
         ),
+        // style: TextStyle(
+        //   fontSize: 36,
+        //   color: Color(0xFFBABABA),
+        //   fontWeight: FontWeight.w600,
+        // ),
         children: [
           TextSpan(
             text: " $titleTwo",
-            style: TextStyle(
+            style: context.headlineMedium.copyWith(
               fontSize: 36,
-              color: Colors.white,
-              fontWeight: FontWeight.w600,
+              color: context.secondary,
             ),
+            // style: TextStyle(
+            //   fontSize: 36,
+            //   color: Colors.white,
+            //   fontWeight: FontWeight.w600,
+            // ),
           )
         ],
       ),

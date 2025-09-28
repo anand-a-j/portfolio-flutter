@@ -46,14 +46,14 @@ class AppTextTheme with AppColor {
           fontFamily: "PlusJakartaSans",
           fontSize: 16,
           fontWeight: FontWeight.w400,
-          height: 1.6,
+  
           color: AppColor.secondary,
         ),
         bodyMedium: TextStyle(
           fontFamily: "PlusJakartaSans",
           fontSize: 14,
           fontWeight: FontWeight.w400,
-          height: 1.5,
+
           color: AppColor.secondary,
         ),
         bodySmall: TextStyle(

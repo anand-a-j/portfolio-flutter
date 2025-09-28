@@ -29,7 +29,7 @@ class _AppBarHoverButtonState extends State<AppBarHoverButton> {
             text: widget.title,
             gradient: AppColor.primaryGradient,
             isGradient: _hovering,
-            color: context.onSecondary,
+            color: context.secondary,
             style: context.bodyMedium,
           ),
         ),
