@@ -1,1 +1,22 @@
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 502.87 502.87"><defs><style>.cls-1{fill:#01579b;}.cls-2{fill:#40c4ff;}.cls-3{fill:#29b6f6;}.cls-4{fill:#fff;}.cls-4,.cls-5,.cls-6{opacity:0.2;isolation:isolate;}.cls-5{fill:#263238;}.cls-6{fill:url(#radial-gradient);}</style><radialGradient id="radial-gradient" cx="251.42" cy="631.97" r="251.4" gradientTransform="translate(0 -380.56)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff" stop-opacity="0.1"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient></defs><title>dart-programming-language</title><path class="cls-1" d="M102.56,400.31l-86-86C6.32,303.82,0,289,0,274.58c0-6.69,3.77-17.16,6.62-23.15L86,86Z"/><path class="cls-2" d="M397,102.56l-86-86C303.49,9,287.85,0,274.61,0c-11.38,0-22.55,2.29-29.76,6.62L86.07,86Z"/><polygon class="cls-2" points="205.11 502.87 413.55 502.87 413.55 413.55 258.05 363.9 115.79 413.55 205.11 502.87"/><path class="cls-3" d="M86,354c0,26.54,3.33,33.05,16.53,46.32l13.23,13.24H413.55L268,248.14,86,86Z"/><path class="cls-1" d="M350.7,86H86L413.55,413.51h89.32V208.4L397,102.52C382.12,87.62,368.92,86,350.7,86Z"/><path class="cls-4" d="M105.88,403.6C92.65,390.33,89.36,377.24,89.36,354V89.32L86.07,86V354c0,23.25,0,29.69,19.81,49.61l9.91,9.91h0Z"/><polygon class="cls-5" points="499.58 205.11 499.58 410.22 410.26 410.22 413.55 413.55 502.87 413.55 502.87 208.4 499.58 205.11"/><path class="cls-4" d="M397,102.56C380.61,86.14,367.19,86,347.41,86H86.07l3.29,3.29H347.41c9.87,0,34.79-1.66,49.61,13.24Z"/><path class="cls-6" d="M499.58,205.11,397,102.56l-86-86C303.49,9,287.85,0,274.61,0c-11.38,0-22.55,2.29-29.76,6.62L86.07,86,6.65,251.43C3.81,257.46,0,267.92,0,274.58c0,14.45,6.36,29.2,16.52,39.7L95.83,393a92.42,92.42,0,0,0,6.73,7.32l3.29,3.29,9.9,9.91,86,86,3.29,3.29h208.4V413.51h89.32V208.4Z"/></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="192px" height="192px" viewBox="0 0 192 192" enable-background="new 0 0 192 192" xml:space="preserve">
+<g>
+	<rect x="0" fill="none" width="192" height="192"/>
+	<path fill="#01579B" d="M51,141l-26-26c-3.08-3.17-5-7.63-5-12c0-2.02,1.14-5.18,2-7l24-50L51,141z"/>
+	<path fill="#40C4FF" d="M140,51l-26-26c-2.27-2.28-7-5-11-5c-3.44,0-6.81,0.69-9,2L46,46L140,51z"/>
+	<polygon fill="#40C4FF" points="82,172 145,172 145,145 98,130 55,145 	"/>
+	<path fill="#29B6F6" d="M46,127c0,8.02,1.01,9.99,5,14l4,4h90l-44-50L46,46V127z"/>
+	<path fill="#01579B" d="M126,46H46l99,99h27V83l-32-32C135.51,46.49,131.51,46,126,46z"/>
+	<path opacity="0.2" fill="#FFFFFF" d="M52,142c-4-4.02-5-7.97-5-15V47l-1-1v81C46,134.03,46,135.98,52,142l3,3l0,0L52,142z"/>
+	<polygon opacity="0.2" fill="#263238" points="171,82 171,144 144,144 145,145 172,145 172,83 	"/>
+	<path opacity="0.2" fill="#FFFFFF" d="M140,51c-4.96-4.96-9.02-5-15-5H46l1,1h78C127.99,47,135.52,46.5,140,51L140,51z"/>
+	<radialGradient id="SVGID_1_" cx="96" cy="96" r="76" gradientUnits="userSpaceOnUse">
+		<stop  offset="0" style="stop-color:#FFFFFF;stop-opacity:0.1"/>
+		<stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0"/>
+	</radialGradient>
+	<path opacity="0.2" fill="url(#SVGID_1_)" d="M171,82l-31-31l-26-26c-2.27-2.28-7-5-11-5c-3.44,0-6.81,0.69-9,2L46,46L22,96
+		c-0.86,1.82-2,4.98-2,7c0,4.37,1.92,8.83,5,12l23.96,23.79c0.57,0.7,1.25,1.42,2.04,2.21l1,1l3,3l26,26l1,1h62h1v-27h27v-0.07V83
+		L171,82z"/>
+</g>
+</svg>

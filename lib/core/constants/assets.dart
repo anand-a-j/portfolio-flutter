@@ -17,11 +17,15 @@ class Assets {
   static const dart = '${_svg}dart.svg';
   static const html = '${_svg}html.svg';
   static const css = '${_svg}css.svg';
-  static const javascript = '${_svg}css.svg';
+  static const javascript = '${_svg}javascript.svg';
   static const figma = '${_svg}figma.svg';
   static const vscode = '${_svg}vscode.svg';
   static const andoridStudio = '${_svg}andorid_studio.svg';
   static const nodejs = '${_svg}node_js.svg';
+  static const supabase = '${_svg}supabase.svg';
+  static const git = '${_svg}git.svg';
+  static const graphql = "${_svg}graphql.svg";
+  static const postman = "${_svg}postman.svg";
 
   // Images
   static const aboutMe = '${_img}about_me.png';

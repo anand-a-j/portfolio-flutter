@@ -23,16 +23,29 @@ List<Widget> body = [
 
 // Skills
 List<String> techStack = [
+  // Frameworks & SDKs
   Assets.flutter,
   Assets.firebase,
+  Assets.supabase,
+
+  // Languages
   Assets.dart,
   Assets.html,
   Assets.css,
   Assets.javascript,
-  Assets.figma,
+  Assets.graphql,
+
+  // Backend / Tools
+  Assets.nodejs,
+  Assets.postman,
+
+  // IDEs & Design Tools
   Assets.vscode,
   Assets.andoridStudio,
-  Assets.nodejs,
+  Assets.figma,
+
+  // Version Control
+  Assets.git,
 ];
 
 const heading2 =

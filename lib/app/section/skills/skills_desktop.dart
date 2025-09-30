@@ -66,33 +66,56 @@ class _InfiniteCardScrollState extends State<InfiniteCardScroll>
     with SingleTickerProviderStateMixin {
   late final AnimationController _controller;
   late final ScrollController _scrollController;
-
-  double scrollSpeed = 60; 
+  final double _scrollSpeed = 60; // pixels per second
+  final double _itemWidth = 94; // 74 + 20 padding (10+10)
 
   @override
   void initState() {
     super.initState();
     _scrollController = ScrollController();
-    _controller = AnimationController(
-      vsync: this,
-      duration: Duration(seconds: 1000), 
-    )..addListener(_scrollListener);
 
-    _controller.repeat(); 
+    // Wait for the layout to be built before starting animation
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _initializeAnimation();
+    });
   }
 
-  void _scrollListener() {
-    if (_scrollController.hasClients) {
-      double maxScroll = _scrollController.position.maxScrollExtent;
-      double currentScroll = _scrollController.offset;
-      double delta = scrollSpeed * _controller.deltaTime;
+  void _initializeAnimation() {
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 1000),
+    )..addListener(_smoothScrollListener);
 
-      if (currentScroll + delta >= maxScroll) {
-        _scrollController.jumpTo(0); // loop back
-      } else {
-        _scrollController.jumpTo(currentScroll + delta);
-      }
+    // Start from a position that allows seamless looping
+    final initialOffset = _calculateInitialOffset();
+    _scrollController.jumpTo(initialOffset);
+
+    _controller.repeat();
+  }
+
+  void _smoothScrollListener() {
+    if (!_scrollController.hasClients) return;
+
+    final currentScroll = _scrollController.offset;
+    final delta = _scrollSpeed * _controller.deltaTime;
+    final newScroll = currentScroll + delta;
+
+    // Calculate the point where we should loop back
+    final loopThreshold =
+        _scrollController.position.maxScrollExtent - _itemWidth;
+
+    if (newScroll >= loopThreshold) {
+      // Instead of jumping to 0, we maintain the visual continuity
+      final overflow = newScroll - loopThreshold;
+      _scrollController.jumpTo(overflow);
+    } else {
+      _scrollController.jumpTo(newScroll);
     }
+  }
+
+  double _calculateInitialOffset() {
+    // Start from the middle of the duplicated content for smoother looping
+    return _itemWidth * techStack.length / 2;
   }
 
   @override
@@ -109,13 +132,15 @@ class _InfiniteCardScrollState extends State<InfiniteCardScroll>
       child: ListView.builder(
         controller: _scrollController,
         scrollDirection: Axis.horizontal,
-        physics: NeverScrollableScrollPhysics(),
-        itemCount: techStack.length,
+        physics: const NeverScrollableScrollPhysics(),
+        // Duplicate the items to create seamless looping
+        itemCount: techStack.length * 3,
         itemBuilder: (context, index) {
+          final actualIndex = index % techStack.length;
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: SvgPicture.asset(
-              techStack[index], // Ensure this asset is defined
+              techStack[actualIndex],
               height: 74,
               width: 74,
             ),
