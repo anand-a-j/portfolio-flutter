@@ -3,6 +3,7 @@ import 'package:portfolio/app/section/projects/model/project_model.dart';
 import 'package:portfolio/core/extension/color_extension.dart';
 import 'package:portfolio/core/extension/textstyle_extension.dart';
 import 'package:portfolio/core/providers/animated_provider.dart';
+import 'package:portfolio/core/responsive/responsive.dart';
 import 'package:portfolio/core/utils/functions.dart';
 import 'package:portfolio/core/utils/strings.dart' hide projects;
 import 'package:provider/provider.dart';
@@ -18,8 +19,9 @@ class ProjectCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
 
-// Scale image height relative to screen width
-    double imageHeight = (size.width * 0.24).clamp(140, 300);
+    double imageHeight = context.isTablet
+        ? (size.width * 0.24).clamp(290, 380)
+        : (size.width * 0.24).clamp(140, 300);
     return Consumer<AnimateProvider>(
       builder: (context, animate, _) {
         return InkWell(

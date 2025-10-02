@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/extension/color_extension.dart';
 import 'package:portfolio/core/extension/textstyle_extension.dart';
-import 'package:portfolio/core/providers/animated_provider.dart';
 import 'package:portfolio/core/responsive/responsive.dart';
-import 'package:portfolio/core/utils/colors.dart';
-import 'package:provider/provider.dart';
 
 class HomeButton extends StatefulWidget {
   const HomeButton({
     super.key,
     required this.title,
     this.onTap,
+    this.isSeeMore = false,
   });
+
+  const HomeButton.seeMore({
+    super.key,
+    required this.title,
+    this.onTap,
+  }) : isSeeMore = true;
 
   final String title;
   final void Function()? onTap;
+  final bool isSeeMore;
 
   @override
   State<HomeButton> createState() => _HomeButtonState();
@@ -35,7 +40,11 @@ class _HomeButtonState extends State<HomeButton> {
       borderRadius: BorderRadius.circular(50),
       child: AnimatedContainer(
         constraints: BoxConstraints(
-          maxWidth: context.isMobile ? 250 : double.infinity,
+          maxWidth: widget.isSeeMore
+              ? 150
+              : context.isMobile
+                  ? 250
+                  : double.infinity,
         ),
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOutCubic,

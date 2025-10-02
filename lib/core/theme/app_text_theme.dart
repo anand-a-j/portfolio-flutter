@@ -46,14 +46,12 @@ class AppTextTheme with AppColor {
           fontFamily: "PlusJakartaSans",
           fontSize: 16,
           fontWeight: FontWeight.w400,
-  
           color: AppColor.secondary,
         ),
         bodyMedium: TextStyle(
           fontFamily: "PlusJakartaSans",
           fontSize: 14,
           fontWeight: FontWeight.w400,
-
           color: AppColor.secondary,
         ),
         bodySmall: TextStyle(
@@ -91,5 +89,21 @@ class AppTextTheme with AppColor {
     color: onPrimaryContainer,
     letterSpacing: 0,
     wordSpacing: 0,
+  );
+
+  static TextStyle contactSubtitle = TextStyle(
+    fontFamily: "JetBrainsMono",
+    fontWeight: FontWeight.w400,
+    fontSize: 14,
+    color: onPrimaryContainerDim,
+    letterSpacing: 0,
+    wordSpacing: 0,
+  );
+
+  static TextStyle contactTitle = TextStyle(
+    fontFamily: "Denton",
+    fontSize: 48,
+    fontWeight: FontWeight.w700,
+    color: AppColor.secondary,
   );
 }

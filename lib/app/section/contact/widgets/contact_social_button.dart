@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:portfolio/core/extension/color_extension.dart';
 
-import '../../../../core/constants/assets.dart';
 import '../../../../core/utils/colors.dart';
 
 class ContactSocialButton extends StatelessWidget {
@@ -33,10 +33,10 @@ class ContactSocialButton extends StatelessWidget {
         child: Center(
           child: SvgPicture.asset(
             image,
-            height: 20,
-            width: 20,
+            height: 30,
+            width: 30,
             colorFilter: ColorFilter.mode(
-              kwhite,
+              context.secondary,
               BlendMode.srcIn,
             ),
           ),

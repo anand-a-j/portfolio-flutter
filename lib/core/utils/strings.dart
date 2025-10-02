@@ -22,3 +22,8 @@ Beyond Flutter, I’m continuously expanding my skills into backend and full-sta
 const myEn = "My";
 const projectsEn = "Projects";
 const viewProjectEn = "View Project";
+const seeMoreEn = "See More";
+const seeLessEn = "See Less";
+const grabCoffeeEn = "Grab a ☕ & Let's Talk";
+const reachOutEn =
+    "Feel free to reach out! I’m always happy to chat about projects, ideas, or potential opportunities.";

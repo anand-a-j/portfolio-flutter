@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:portfolio/app/section/contact/contact_desktop.dart';
+import 'package:portfolio/app/section/contact/contact_mobile.dart';
+import 'package:portfolio/app/section/contact/contact_tablet.dart';
 import 'package:portfolio/app/utils/utils.dart';
 import 'package:portfolio/core/constants/assets.dart';
+import 'package:portfolio/core/responsive/responsive.dart';
 import 'package:portfolio/core/utils/colors.dart';
 import 'package:portfolio/core/utils/functions.dart';
 
@@ -14,68 +18,10 @@ class ContactPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.sizeOf(context).width;
-
-    return Container(
-      margin: EdgeInsets.symmetric(
-        horizontal: 10,
-        vertical: width > 1024 ? 0 : 10,
-      ),
-      width: width,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Text(
-            "Grab a ☕ & Let's Talk",
-            style: TextStyle(
-              fontFamily: "Denton",
-              fontSize: 48,
-              fontWeight: FontWeight.w700,
-              color: Colors.white,
-            ),
-          ),
-          const SizedBox(height: 5),
-          Text(
-            "Feel free to reach out to me for any questions or opportunities!",
-            style: body1,
-            textScaler: TextScaler.linear(textScaleFactor(context)),
-          ),
-          SizedBox(height: width > 1024 ? 40 : 15),
-          Center(
-            child: ConstrainedBox(
-              constraints: BoxConstraints(
-                maxWidth: 600,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                spacing: 10,
-                children: [
-                  ContactSocialButton(
-                    image: Assets.github,
-                    onTap: () {},
-                  ),
-                  // add more social icons here if needed
-                  ContactSocialButton(
-                    image: Assets.linkedin,
-                    onTap: () {},
-                  ),
-                  ContactSocialButton(
-                    image: Assets.twitter,
-                    onTap: () {},
-                  ),
-
-                  ContactEmailCard(),
-                ],
-              ),
-            ),
-          ),
-          const SizedBox(height: 100),
-          ContactFooterText(),
-          const SizedBox(height: 50),
-        ],
-      ),
+    return Responsive(
+      desktop: ContactDesktop(),
+      tablet: ContactTablet(),
+      mobile: ContactMobile(),
     );
   }
 }
