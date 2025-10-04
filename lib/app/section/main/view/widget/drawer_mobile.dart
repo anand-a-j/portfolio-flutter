@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/section/footer/widgets/footer_social_button.dart';
 import 'package:portfolio/app/utils/navbar_utils.dart';
+import 'package:portfolio/core/extension/color_extension.dart';
+import 'package:portfolio/core/extension/textstyle_extension.dart';
 import 'package:portfolio/core/providers/scroll_provider.dart';
 import 'package:portfolio/core/utils/colors.dart';
 import 'package:portfolio/core/utils/functions.dart';
@@ -13,55 +15,68 @@ class DrawerMobile extends StatelessWidget {
   Widget build(BuildContext context) {
     var scrollProvider = context.watch<ScrollProvider>();
     return Drawer(
+      backgroundColor: context.onSecondary,
       child: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.only(
+          top: 40,
+          left: 20,
+          right: 20,
+        ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          spacing: 25,
           children: [
-            Text(
-              '<anand/>',
-              style: const TextStyle(
-                fontFamily: 'Pacifico',
-                fontSize: 24,
-              ),
-              textScaler: TextScaler.linear(
-                textScaleFactor(context),
-              ),
-              textAlign: TextAlign.center,
+            _DrawerTitleButton(
+              title: "Home",
+              onTap: () {
+                Navigator.pop(context);
+                scrollProvider.jumpTo(0);
+              },
             ),
-            const SizedBox(height: 15),
-            ListView(
-              shrinkWrap: true,
-              children: [
-                ...NavBarUtils.names.asMap().entries.map(
-                      (e) => Padding(
-                        padding: const EdgeInsets.only(bottom: 10),
-                        child: MaterialButton(
-                          hoverColor: primaryColor.withAlpha(55),
-                          shape: const OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(10)),
-                            borderSide: BorderSide.none
-                          ),
-                          onPressed: () {
-                            scrollProvider.jumpTo(e.key);
-                            Navigator.pop(context);
-                          },
-                          child: ListTile(
-                            leading: Icon(NavBarUtils.icons[e.key],color: kwhite,),
-                            title: Text(
-                              e.value,
-                              style: Theme.of(context).textTheme.bodyMedium,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-              ],
+            _DrawerTitleButton(
+              title: "About",
+              onTap: () {
+                Navigator.pop(context);
+                scrollProvider.jumpTo(1);
+              },
             ),
-            const Spacer(),
-            const FooterSocialButtons(),
-            const SizedBox(height: 15)
+            _DrawerTitleButton(
+              title: "Project",
+              onTap: () {
+                Navigator.pop(context);
+                scrollProvider.jumpTo(2);
+              },
+            ),
+            _DrawerTitleButton(
+              title: "Contact",
+              onTap: () {
+                Navigator.pop(context);
+                scrollProvider.jumpTo(3);
+              },
+            ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class _DrawerTitleButton extends StatelessWidget {
+  const _DrawerTitleButton({
+    required this.title,
+    required this.onTap,
+  });
+
+  final String title;
+  final void Function()? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Text(
+       title,
+        style: context.headlineSmall,
       ),
     );
   }

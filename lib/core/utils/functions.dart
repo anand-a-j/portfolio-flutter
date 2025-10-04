@@ -5,8 +5,18 @@ import 'package:url_launcher/url_launcher.dart';
 const kDuration = Duration(milliseconds: 600);
 
 // url launcher
-Future<void> openUrlLink(String url) async {
-  await launchUrl(Uri.parse(url));
+Future<bool> openUrlLink(String url) async {
+  try {
+    final uri = Uri.parse(url);
+
+    if (await canLaunchUrl(uri)) {
+      return await launchUrl(uri);
+    } else {
+      return false;
+    }
+  } catch (e) {
+    return false;
+  }
 }
 
 // calculate text scale factor
@@ -20,13 +30,6 @@ double textScaleFactor(
   defaultScaleFactor = width > 1024 ? 0.5 : 0.5;
   double val = (width / 1400) * maxTextScaleFactor;
   return max(defaultScaleFactor, min(val, maxTextScaleFactor));
-}
-
-scrollToSection(BuildContext context) {
-  Scrollable.ensureVisible(
-    context,
-    duration: kDuration,
-  );
 }
 
 double desktopFontSize({

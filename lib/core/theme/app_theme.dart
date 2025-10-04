@@ -8,7 +8,7 @@ ThemeData buildDarkTheme() {
     textTheme: AppTextTheme.textTheme,
     fontFamily: "PlusJakartaSans",
     primaryColor: AppColor.primary,
-
+    scaffoldBackgroundColor: AppColor.onSecondary,
     colorScheme: ColorScheme(
       primary: AppColor.primary,
       onPrimary: AppColor.secondary,

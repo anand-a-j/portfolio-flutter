@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/constants/assets.dart';
-import 'package:portfolio/core/utils/urls.dart';
+
 
 class FooterProvider extends ChangeNotifier {
   final List socialIcon = [
@@ -11,10 +11,10 @@ class FooterProvider extends ChangeNotifier {
   ];
 
   final _lanuchUrl = [
-    Urls.githubAccountUrl,
-    Urls.linkedinUrl,
-    Urls.xUrl,
-    Urls.whatsappUrl
+    // Urls.githubAccountUrl,
+    // Urls.linkedinUrl,
+    // Urls.xUrl,
+    // Urls.whatsappUrl
   ];
 
   get lanuchUrl => _lanuchUrl;

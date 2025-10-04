@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/utils/colors.dart';
-import 'package:portfolio/core/utils/functions.dart';
-import 'package:portfolio/core/utils/urls.dart';
 
 class FooterCopyRight extends StatelessWidget {
   const FooterCopyRight({
@@ -18,7 +16,7 @@ class FooterCopyRight extends StatelessWidget {
         Center(
           child: InkWell(
             onTap: () {
-              openUrlLink(Urls.githubAccountUrl);
+  
             },
             child: RichText(
               text: TextSpan(

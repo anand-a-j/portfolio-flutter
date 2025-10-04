@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/core/extension/color_extension.dart';
 
 import '../../../core/constants/app_consts.dart';
+import '../../../core/constants/app_links.dart';
 import '../../../core/constants/assets.dart';
 import '../../../core/theme/app_text_theme.dart';
+import '../../../core/utils/functions.dart';
+import '../../../core/utils/snackbar.dart';
 import '../../../core/utils/strings.dart';
 import 'widgets/contact_email_card.dart';
 import 'widgets/contact_footer_text.dart';
@@ -39,7 +42,7 @@ class ContactTablet extends StatelessWidget {
           Text(
             grabCoffeeEn,
             style: AppTextTheme.contactTitle,
-                textAlign: TextAlign.center,
+            textAlign: TextAlign.center,
           ),
           const SizedBox(height: 5),
           Padding(
@@ -62,19 +65,38 @@ class ContactTablet extends StatelessWidget {
                 children: [
                   ContactSocialButton(
                     image: Assets.github,
-                    onTap: () {},
+                    onTap: () async {
+                      final success = await openUrlLink(AppLinks.github);
+
+                      if (!success && context.mounted) {
+                        showAppSnackBar(context, linkOpenErrorEn);
+                      }
+                    },
                   ),
                   ContactSocialButton(
                     image: Assets.linkedin,
-                    onTap: () {},
+                    onTap: () async {
+                      final success = await openUrlLink(AppLinks.linkedin);
+
+                      if (!success && context.mounted) {
+                        showAppSnackBar(context, linkOpenErrorEn);
+                      }
+                    },
                   ),
                   ContactSocialButton(
                     image: Assets.twitter,
-                    onTap: () {},
+                    onTap: () async {
+                      final success = await openUrlLink(AppLinks.twitter);
+
+                      if (!success && context.mounted) {
+                        showAppSnackBar(context, linkOpenErrorEn);
+                      }
+                    },
                   ),
                   Expanded(
                     flex: 2,
-                    child: ContactEmailCard(),),
+                    child: ContactEmailCard(),
+                  ),
                 ],
               ),
             ),

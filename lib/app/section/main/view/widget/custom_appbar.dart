@@ -15,9 +15,11 @@ class CustomAppBar extends StatelessWidget {
   const CustomAppBar({
     super.key,
     required this.scrollProvider,
+    required this.scaffoldKey,
   });
 
   final ScrollProvider scrollProvider;
+  final GlobalKey<ScaffoldState> scaffoldKey;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +38,7 @@ class CustomAppBar extends StatelessWidget {
                 : AppConsts.pMedium,
       ),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(50), 
+        borderRadius: BorderRadius.circular(50),
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
           child: Container(
@@ -66,30 +68,40 @@ class CustomAppBar extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 LiveClock(),
-                context.isMobile ? Icon(Icons.menu,color: context.secondary,) : 
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  spacing: 10,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    AppBarHoverButton(
-                      title: home,
-                      onTap: () => scrollProvider.jumpTo(0),
-                    ),
-                    AppBarHoverButton(
-                      title: services,
-                      onTap: () => scrollProvider.jumpTo(1),
-                    ),
-                    AppBarHoverButton(
-                      title: projects,
-                      onTap: () => scrollProvider.jumpTo(2),
-                    ),
-                    AppBarHoverButton(
-                      title: contacts,
-                      onTap: () => scrollProvider.jumpTo(3),
-                    ),
-                  ],
-                )
+                context.isMobile
+                    ? GestureDetector(
+                        onTap: () {
+                      
+                          scaffoldKey.currentState?.openEndDrawer();
+                        },
+                        child: Icon(
+                          Icons.menu,
+                          color: context.secondary,
+                        ),
+                      )
+                    : Row(
+                        mainAxisSize: MainAxisSize.min,
+                        spacing: 10,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          AppBarHoverButton(
+                            title: home,
+                            onTap: () => scrollProvider.jumpTo(0),
+                          ),
+                          AppBarHoverButton(
+                            title: services,
+                            onTap: () => scrollProvider.jumpTo(1),
+                          ),
+                          AppBarHoverButton(
+                            title: projects,
+                            onTap: () => scrollProvider.jumpTo(2),
+                          ),
+                          AppBarHoverButton(
+                            title: contacts,
+                            onTap: () => scrollProvider.jumpTo(3),
+                          ),
+                        ],
+                      )
               ],
             ),
           ),

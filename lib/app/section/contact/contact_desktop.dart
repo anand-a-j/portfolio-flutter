@@ -4,7 +4,10 @@ import 'package:portfolio/core/extension/color_extension.dart';
 import 'package:portfolio/core/theme/app_text_theme.dart';
 import 'package:portfolio/core/utils/strings.dart';
 
+import '../../../core/constants/app_links.dart';
 import '../../../core/constants/assets.dart';
+import '../../../core/utils/functions.dart';
+import '../../../core/utils/snackbar.dart';
 import 'widgets/contact_email_card.dart';
 import 'widgets/contact_footer_text.dart';
 import 'widgets/contact_social_button.dart';
@@ -58,17 +61,35 @@ class ContactDesktop extends StatelessWidget {
                 children: [
                   ContactSocialButton(
                     image: Assets.github,
-                    onTap: () {},
+                    onTap: () async {
+                      final success = await openUrlLink(AppLinks.github);
+
+                      if (!success && context.mounted) {
+                        showAppSnackBar(context, linkOpenErrorEn);
+                      }
+                    },
                   ),
                   ContactSocialButton(
                     image: Assets.linkedin,
-                    onTap: () {},
+                    onTap: () async {
+                      final success = await openUrlLink(AppLinks.linkedin);
+
+                      if (!success && context.mounted) {
+                        showAppSnackBar(context, linkOpenErrorEn);
+                      }
+                    },
                   ),
                   ContactSocialButton(
                     image: Assets.twitter,
-                    onTap: () {},
+                    onTap: () async {
+                      final success = await openUrlLink(AppLinks.twitter);
+
+                      if (!success && context.mounted) {
+                        showAppSnackBar(context, linkOpenErrorEn);
+                      }
+                    },
                   ),
-            Expanded(
+                  Expanded(
                     flex: 2,
                     child: ContactEmailCard(),
                   ),
