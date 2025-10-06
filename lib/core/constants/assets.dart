@@ -26,6 +26,9 @@ class Assets {
   static const git = '${_svg}git.svg';
   static const graphql = "${_svg}graphql.svg";
   static const postman = "${_svg}postman.svg";
+  static const closeX = "${_svg}close_x.svg";
+  static const drawerMenu = "${_svg}drawer_menu.svg";
+  static const arrowUpRight = "${_svg}arrow_up_right.svg";
 
   // Images
   static const aboutMe = '${_img}about_me.png';

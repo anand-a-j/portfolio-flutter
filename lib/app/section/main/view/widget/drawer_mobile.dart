@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/app/section/footer/widgets/footer_social_button.dart';
-import 'package:portfolio/app/utils/navbar_utils.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:portfolio/core/constants/assets.dart';
 import 'package:portfolio/core/extension/color_extension.dart';
 import 'package:portfolio/core/extension/textstyle_extension.dart';
 import 'package:portfolio/core/providers/scroll_provider.dart';
-import 'package:portfolio/core/utils/colors.dart';
-import 'package:portfolio/core/utils/functions.dart';
 import 'package:provider/provider.dart';
 
 class DrawerMobile extends StatelessWidget {
@@ -26,6 +24,17 @@ class DrawerMobile extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           spacing: 25,
           children: [
+            Align(
+              alignment: Alignment.topLeft,
+              child: GestureDetector(
+                onTap: () => Navigator.pop(context),
+                child: SvgPicture.asset(
+                  Assets.closeX,
+                  height: 28,
+                  width: 28,
+                ),
+              ),
+            ),
             _DrawerTitleButton(
               title: "Home",
               onTap: () {
@@ -75,7 +84,7 @@ class _DrawerTitleButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Text(
-       title,
+        title,
         style: context.headlineSmall,
       ),
     );

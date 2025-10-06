@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:portfolio/core/constants/assets.dart';
 import 'package:portfolio/core/extension/color_extension.dart';
 import 'package:portfolio/core/extension/textstyle_extension.dart';
 import 'package:portfolio/core/responsive/responsive.dart';
@@ -61,11 +63,25 @@ class _HomeButtonState extends State<HomeButton> {
           ),
         ),
         child: Center(
-          child: Text(
-            widget.title,
-            style: context.bodyLarge.copyWith(
-              color: _isHover ? context.onSecondary : context.secondary,
-            ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            spacing: 3,
+            children: [
+              Text(
+                widget.title,
+                style: context.bodyLarge.copyWith(
+                  color: _isHover ? context.onSecondary : context.secondary,
+                ),
+              ),
+              Icon(
+                Icons.arrow_outward,
+                color: _isHover ? context.onSecondary : context.secondary,
+                size: 18,
+                weight: 200,
+              ),
+            ],
           ),
         ),
       ),

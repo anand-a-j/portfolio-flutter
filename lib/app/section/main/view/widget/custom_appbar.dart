@@ -1,7 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/extension/color_extension.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:portfolio/core/constants/assets.dart';
 import 'package:portfolio/core/responsive/responsive.dart';
 import 'package:portfolio/core/utils/strings.dart';
 
@@ -71,12 +72,12 @@ class CustomAppBar extends StatelessWidget {
                 context.isMobile
                     ? GestureDetector(
                         onTap: () {
-                      
                           scaffoldKey.currentState?.openEndDrawer();
                         },
-                        child: Icon(
-                          Icons.menu,
-                          color: context.secondary,
+                        child: SvgPicture.asset(
+                          Assets.drawerMenu,
+                          height: 28,
+                          width: 28,
                         ),
                       )
                     : Row(
