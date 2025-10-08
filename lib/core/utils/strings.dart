@@ -1,5 +1,6 @@
 const hello = "Hello, I'm Anand 👋";
-const heroTitle = "Crafting Flutter Apps.\nExploring Full-Stack.";
+const heroTitle = "HI Cherry\nHow you doing";
+// "Crafting Flutter Apps.\nExploring Full-Stack.";
 const heroSubtitle =
     "Flutter developer passionate about UI, performance, and app optimization.\nExpanding skills into backend, databases, and full-stack solutions.";
 const heroSubtitleMobile =

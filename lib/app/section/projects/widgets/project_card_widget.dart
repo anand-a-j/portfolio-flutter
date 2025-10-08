@@ -54,7 +54,7 @@ class ProjectCardWidget extends StatelessWidget {
                     borderRadius: BorderRadius.circular(14),
                     image: DecorationImage(
                       image: NetworkImage(
-                        "https://private-user-images.githubusercontent.com/132826472/268874753-d5d2d286-c634-42ab-8503-fe82c66d8b2c.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTk3Njk0ODQsIm5iZiI6MTc1OTc2OTE4NCwicGF0aCI6Ii8xMzI4MjY0NzIvMjY4ODc0NzUzLWQ1ZDJkMjg2LWM2MzQtNDJhYi04NTAzLWZlODJjNjZkOGIyYy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUxMDA2JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MTAwNlQxNjQ2MjRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1iNzdhNDMxN2ZhMGVhYWNmMzkxNDNiNGI2YTg4NjU4N2Q5NGE3OTljMzdjMTQwYjQ5MGUzYTk1M2JhZWMyZWRiJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.KbQZLoSVSVgiFYVbblI0Fu3y5RT2deAqgb-N0S3g3xo",
+                        "",
                       ),
                       fit: BoxFit.cover,
                     ),
