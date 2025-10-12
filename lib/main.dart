@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Portfolio',
+      title: "Anand A J | Flutter Developer",
       themeMode: ThemeMode.dark,
       darkTheme: buildDarkTheme(),
       debugShowCheckedModeBanner: false,

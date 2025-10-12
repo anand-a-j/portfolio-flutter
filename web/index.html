@@ -1,5 +1,69 @@
 <!DOCTYPE html>
 <html>
+  <style>
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: #000000; 
+}
+
+.loader-circle-2 {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  display: inline-block;
+}
+
+/* Outer and inner circles */
+.loader-circle-2:before,
+.loader-circle-2:after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-width: 5px;
+  border-style: solid;
+  border-radius: 50%;
+}
+
+/* Outer circle — single color */
+.loader-circle-2:before {
+  width: 70px;
+  height: 70px;
+  border-bottom-color: #BC3CD8; 
+  border-right-color: #BC3CD8;  
+  border-top-color: transparent;
+  border-left-color: transparent;
+  animation: loader-circle-2-animation-2 1s linear infinite;
+}
+
+
+.loader-circle-2:after {
+  width: 40px;
+  height: 40px;
+  border-bottom-color: #C54B8C; 
+  border-right-color: #C54B8C;  
+  border-top-color: transparent;
+  border-left-color: transparent;
+  top: 22%;
+  left: 22%;
+  animation: loader-circle-2-animation 0.85s linear infinite;
+}
+
+/* Animations */
+@keyframes loader-circle-2-animation {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
+}
+
+@keyframes loader-circle-2-animation-2 {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+  </style>
 <head>
   <!--
     If you are serving your web app in a path other than the root, change the
@@ -29,10 +93,26 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>portfolio</title>
+  <title>Anand A J | Flutter Developer</title>
   <link rel="manifest" href="manifest.json">
+
 </head>
 <body>
+<div class="loader-circle-2"></div>
+
   <script src="flutter_bootstrap.js" async></script>
+ <script>
+
+  window.addEventListener('flutter-first-frame', function () {
+    const loader = document.querySelector('.loader-circle-2');
+    if (loader) {
+
+      loader.style.transition = 'opacity 0.5s ease';
+      loader.style.opacity = '0';
+
+      setTimeout(() => loader.remove(), 600);
+    }
+  });
+</script>
 </body>
 </html>
