@@ -8,11 +8,14 @@ import 'package:portfolio/core/utils/colors.dart';
 import 'package:portfolio/core/utils/functions.dart';
 import 'package:portfolio/core/utils/strings.dart';
 
+import '../../../core/providers/scroll_provider.dart';
 import '../../../core/widgets/animated_gradient_text.dart';
 import 'widgets/star_background.dart';
 
 class HomeDesktop extends StatelessWidget {
-  const HomeDesktop({super.key});
+  const HomeDesktop({super.key, required this.scrollProvider});
+
+  final ScrollProvider scrollProvider;
 
   @override
   Widget build(BuildContext context) {
@@ -70,11 +73,15 @@ class HomeDesktop extends StatelessWidget {
                     children: [
                       HomeButton(
                         title: aboutMe,
-                        onTap: () {},
+                        onTap: () {
+                          scrollProvider.jumpTo(1);
+                        },
                       ),
                       HomeButton(
                         title: letsConnect,
-                        onTap: () {},
+                        onTap: () {
+                            scrollProvider.jumpTo(3);
+                        },
                       ),
                     ],
                   ),

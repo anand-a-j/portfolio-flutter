@@ -10,7 +10,6 @@ class Assets {
   static const uiux = '${_svg}uiux.svg';
   static const twitter = '${_svg}twitter.svg';
   static const linkedin = '${_svg}linkedin.svg';
-  static const whatsapp = '${_svg}whatsapp.svg';
   static const github = '${_svg}github.svg';
   static const flutter = '${_svg}flutter.svg';
   static const firebase = '${_svg}firebase.svg';
@@ -29,6 +28,7 @@ class Assets {
   static const closeX = "${_svg}close_x.svg";
   static const drawerMenu = "${_svg}drawer_menu.svg";
   static const arrowUpRight = "${_svg}arrow_up_right.svg";
+  static const whatsapp = "${_svg}whatsapp.svg";
 
   // Images
   static const aboutMe = '${_img}about_me.png';

@@ -5,8 +5,10 @@ import 'package:portfolio/core/extension/textstyle_extension.dart';
 import 'package:portfolio/core/providers/animated_provider.dart';
 import 'package:portfolio/core/responsive/responsive.dart';
 import 'package:portfolio/core/utils/functions.dart';
-import 'package:portfolio/core/utils/strings.dart' hide projects;
+import 'package:portfolio/core/utils/strings.dart';
 import 'package:provider/provider.dart';
+
+import '../../../../core/utils/snackbar.dart';
 
 class ProjectCardWidget extends StatelessWidget {
   final int index;
@@ -42,7 +44,15 @@ class ProjectCardWidget extends StatelessWidget {
                 width: 1,
                 color: context.brandColors.primaryContainerBorder,
               ),
-              // boxShadow: boxShadow,
+              boxShadow: animate.isHover && index == animate.currentIndex
+                  ? [
+                      BoxShadow(
+                        color: context.primary.withValues(alpha: 0.5),
+                        blurRadius: 5,
+                        spreadRadius: 1,
+                      )
+                    ]
+                  : [],
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -54,7 +64,7 @@ class ProjectCardWidget extends StatelessWidget {
                     borderRadius: BorderRadius.circular(14),
                     image: DecorationImage(
                       image: NetworkImage(
-                        "",
+                        projects[index].imageUrl,
                       ),
                       fit: BoxFit.cover,
                     ),
@@ -87,23 +97,33 @@ class ProjectCardWidget extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
                 const Spacer(),
-                Container(
-                  height: 46,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: context.onSecondary,
-                    border: Border.all(
-                      width: 0.5,
-                      color: context.brandColors.primaryContainerBorder,
+                GestureDetector(
+                  onTap: () async {
+                    final success =
+                        await openUrlLink(projects[index].githubLink);
+
+                    if (!success && context.mounted) {
+                      showAppSnackBar(context, linkOpenErrorEn);
+                    }
+                  },
+                  child: Container(
+                    height: 43,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: context.onSecondary,
+                      border: Border.all(
+                        width: 0.5,
+                        color: context.brandColors.primaryContainerBorder,
+                      ),
                     ),
-                  ),
-                  child: Center(
-                    child: Text(
-                      viewProjectEn,
-                      style: context.bodyMedium.copyWith(
-                        fontWeight: FontWeight.w500,
-                        color: context.secondary,
+                    child: Center(
+                      child: Text(
+                        viewOnGithubEn,
+                        style: context.bodyMedium.copyWith(
+                          fontWeight: FontWeight.w500,
+                          color: context.secondary,
+                        ),
                       ),
                     ),
                   ),

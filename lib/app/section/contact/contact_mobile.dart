@@ -63,35 +63,53 @@ class ContactMobile extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 spacing: 10,
                 children: [
-                  ContactSocialButton(
-                    image: Assets.github,
-                    onTap: () async {
-                      final success = await openUrlLink(AppLinks.github);
+                  Expanded(
+                    child: ContactSocialButton(
+                      image: Assets.github,
+                      onTap: () async {
+                        final success = await openUrlLink(AppLinks.github);
 
-                      if (!success && context.mounted) {
-                        showAppSnackBar(context, linkOpenErrorEn);
-                      }
-                    },
+                        if (!success && context.mounted) {
+                          showAppSnackBar(context, linkOpenErrorEn);
+                        }
+                      },
+                    ),
                   ),
-                  ContactSocialButton(
-                    image: Assets.linkedin,
-                    onTap: () async {
-                      final success = await openUrlLink(AppLinks.linkedin);
+                  Expanded(
+                    child: ContactSocialButton(
+                      image: Assets.linkedin,
+                      onTap: () async {
+                        final success = await openUrlLink(AppLinks.linkedin);
 
-                      if (!success && context.mounted) {
-                        showAppSnackBar(context, linkOpenErrorEn);
-                      }
-                    },
+                        if (!success && context.mounted) {
+                          showAppSnackBar(context, linkOpenErrorEn);
+                        }
+                      },
+                    ),
                   ),
-                  ContactSocialButton(
-                    image: Assets.twitter,
-                    onTap: () async {
-                      final success = await openUrlLink(AppLinks.twitter);
+                  Expanded(
+                    child: ContactSocialButton(
+                      image: Assets.twitter,
+                      onTap: () async {
+                        final success = await openUrlLink(AppLinks.twitter);
 
-                      if (!success && context.mounted) {
-                        showAppSnackBar(context, linkOpenErrorEn);
-                      }
-                    },
+                        if (!success && context.mounted) {
+                          showAppSnackBar(context, linkOpenErrorEn);
+                        }
+                      },
+                    ),
+                  ),
+                  Expanded(
+                    child: ContactSocialButton(
+                      image: Assets.whatsapp,
+                      onTap: () async {
+                        final success = await openUrlLink(AppLinks.whatsapp);
+
+                        if (!success && context.mounted) {
+                          showAppSnackBar(context, linkOpenErrorEn);
+                        }
+                      },
+                    ),
                   ),
                 ],
               ),

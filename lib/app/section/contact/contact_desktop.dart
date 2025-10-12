@@ -89,6 +89,16 @@ class ContactDesktop extends StatelessWidget {
                       }
                     },
                   ),
+                  ContactSocialButton(
+                    image: Assets.whatsapp,
+                    onTap: () async {
+                      final success = await openUrlLink(AppLinks.whatsapp);
+
+                      if (!success && context.mounted) {
+                        showAppSnackBar(context, linkOpenErrorEn);
+                      }
+                    },
+                  ),
                   Expanded(
                     flex: 2,
                     child: ContactEmailCard(),

@@ -7,8 +7,8 @@ class AnimateProvider extends ChangeNotifier {
   bool get isHover => _isHover;
   int get currentIndex => _currentIndex;
 
-  setIshover(bool value, int index) {
-    for (int i = 0; i < 4; i++) {
+  void setIshover(bool value, int index) {
+    for (int i = 0; i < 5; i++) {
       if (i == index) {
         _isHover = value;
         _currentIndex = index;

@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/section/about/about.dart';
 import 'package:portfolio/app/section/contact/contact_page.dart';
-import 'package:portfolio/app/section/footer/footer_desktop.dart';
 import 'package:portfolio/app/section/home/home.dart';
 import 'package:portfolio/app/section/projects/project.dart';
 import 'package:portfolio/app/section/projects/project_desktop.dart';
-import 'package:portfolio/app/section/services/service.dart';
 import 'package:portfolio/app/section/skills/skills_page.dart';
 import 'package:portfolio/core/constants/app_consts.dart';
 import 'package:portfolio/core/constants/assets.dart';

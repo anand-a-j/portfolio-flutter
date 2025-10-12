@@ -24,7 +24,7 @@ class AboutTablet extends StatelessWidget {
         children: [
           const SizedBox(height: 50),
           TitleRichText(
-            titleOne: about,
+            titleOne: aboutEn,
             titleTwo: me,
           ),
           const SizedBox(height: 70),

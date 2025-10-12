@@ -6,13 +6,16 @@ import 'package:portfolio/core/utils/functions.dart';
 
 import '../../../core/constants/app_consts.dart';
 import '../../../core/constants/assets.dart';
+import '../../../core/providers/scroll_provider.dart';
 import '../../../core/theme/app_text_theme.dart';
 import '../../../core/utils/strings.dart';
 import '../../../core/widgets/animated_gradient_text.dart';
 import 'widgets/star_background.dart';
 
 class HomeTablet extends StatelessWidget {
-  const HomeTablet({super.key});
+  const HomeTablet({super.key, required this.scrollProvider});
+
+  final ScrollProvider scrollProvider;
 
   @override
   Widget build(BuildContext context) {
@@ -67,11 +70,15 @@ class HomeTablet extends StatelessWidget {
                     children: [
                       HomeButton(
                         title: aboutMe,
-                        onTap: () {},
+                        onTap: () {
+                          scrollProvider.jumpTo(1);
+                        },
                       ),
                       HomeButton(
                         title: letsConnect,
-                        onTap: () {},
+                        onTap: () {
+                          scrollProvider.jumpTo(3);
+                        },
                       ),
                     ],
                   ),

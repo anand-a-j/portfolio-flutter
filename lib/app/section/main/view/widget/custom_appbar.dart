@@ -86,19 +86,19 @@ class CustomAppBar extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           AppBarHoverButton(
-                            title: home,
+                            title: homeEn,
                             onTap: () => scrollProvider.jumpTo(0),
                           ),
                           AppBarHoverButton(
-                            title: services,
+                            title: aboutEn,
                             onTap: () => scrollProvider.jumpTo(1),
                           ),
                           AppBarHoverButton(
-                            title: projects,
+                            title: projectsEn,
                             onTap: () => scrollProvider.jumpTo(2),
                           ),
                           AppBarHoverButton(
-                            title: contacts,
+                            title: contactEn,
                             onTap: () => scrollProvider.jumpTo(3),
                           ),
                         ],

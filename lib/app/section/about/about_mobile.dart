@@ -23,7 +23,7 @@ class AboutMobile extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           TitleRichText(
-            titleOne: about,
+            titleOne: aboutEn,
             titleTwo: me,
           ),
           const SizedBox(height: 40),

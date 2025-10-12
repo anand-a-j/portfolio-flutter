@@ -35,7 +35,7 @@ double textScaleFactor(
 double desktopFontSize({
   required BuildContext context,
   double minFontSize = 16,
-  double maxFontSize = 20,
+  double maxFontSize = 19,
   double minWidth = 1024,
   double maxWidth = 1920,
 }) {
