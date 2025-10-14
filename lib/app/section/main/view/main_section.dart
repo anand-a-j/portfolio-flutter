@@ -1,17 +1,12 @@
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:portfolio/app/section/main/view/widget/custom_appbar_button.dart';
 import 'package:portfolio/app/section/main/view/widget/drawer_mobile.dart';
 import 'package:portfolio/core/providers/scroll_provider.dart';
 import 'package:portfolio/app/utils/utils.dart';
-import 'package:portfolio/core/utils/colors.dart';
-import 'package:portfolio/core/utils/functions.dart';
 import 'package:provider/provider.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 import 'widget/custom_appbar.dart';
-import 'widget/live_clock.dart';
 
 class MainSection extends StatelessWidget {
   const MainSection({super.key});

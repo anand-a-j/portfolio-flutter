@@ -17,13 +17,13 @@ class StarField extends StatefulWidget {
   final double glowIntensity;
 
   const StarField({
-    Key? key,
+    super.key,
     this.baseStars = 160,
     this.twinkle = true,
     this.backgroundStart = const Color.fromARGB(255, 0, 0, 0),
     this.backgroundEnd = const Color.fromARGB(255, 0, 0, 0),
     this.glowIntensity = 0.12, // smaller by default than before
-  }) : super(key: key);
+  });
 
   @override
   State<StarField> createState() => _StarFieldState();

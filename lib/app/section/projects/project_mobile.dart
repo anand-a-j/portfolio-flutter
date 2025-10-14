@@ -10,8 +10,7 @@ class ProjectMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.sizeOf(context).width;
-    double height = MediaQuery.sizeOf(context).height;
+
    return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: AppConsts.pMobileSideHorz,

@@ -7,8 +7,9 @@ import 'package:portfolio/core/utils/functions.dart';
 import 'package:portfolio/core/utils/strings.dart';
 
 import '../../../core/utils/colors.dart';
+import '../../../core/widgets/black_fade_container.dart';
 import '../../../core/widgets/title_rich_text.dart';
-import '../skills/skills_desktop.dart';
+import 'widgets/techstack_infinite_scroll.dart';
 
 class AboutDesktop extends StatelessWidget {
   const AboutDesktop({super.key});
@@ -69,10 +70,6 @@ class AboutDesktop extends StatelessWidget {
                         ),
                         color: context.brandColors.onPrimaryContainerDim,
                       ),
-                      // style: TextStyle(
-                      //   fontSize: 18,
-                      //   color: context.brandColors.onPrimaryContainerDim,
-                      // ),
                       textAlign: TextAlign.justify,
                     ),
                   ),

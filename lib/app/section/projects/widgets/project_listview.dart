@@ -3,7 +3,7 @@ import 'package:portfolio/app/section/home/widgets/home_button.dart';
 import 'package:portfolio/app/section/projects/model/project_model.dart';
 import 'package:portfolio/app/section/projects/widgets/project_card_widget.dart';
 import 'package:portfolio/core/responsive/responsive.dart';
-import 'package:portfolio/core/utils/strings.dart' hide projects;
+import 'package:portfolio/core/utils/strings.dart';
 
 class ProjectListView extends StatefulWidget {
   const ProjectListView({super.key});

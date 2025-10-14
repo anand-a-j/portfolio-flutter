@@ -5,8 +5,9 @@ import 'package:portfolio/core/utils/functions.dart';
 
 import '../../../core/constants/app_consts.dart';
 import '../../../core/utils/strings.dart';
+import '../../../core/widgets/black_fade_container.dart';
 import '../../../core/widgets/title_rich_text.dart';
-import '../skills/skills_desktop.dart';
+import 'widgets/techstack_infinite_scroll.dart';
 
 class AboutMobile extends StatelessWidget {
   const AboutMobile({super.key});
