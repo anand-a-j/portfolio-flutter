@@ -13,12 +13,17 @@ const contactEn = 'Contact';
 const aboutEn = 'About';
 const me = "Me";
 const aboutMeBody = """
-I’m a Flutter developer with over 2 years of experience building cross-platform mobile apps using Dart, Firebase, and REST APIs. I specialize in crafting responsive UIs, optimizing performance, and deploying polished apps to both Google Play Store and Apple App Store.
+I’m a Flutter developer with 2+ years of experience building and maintaining cross-platform mobile applications with a strong focus on performance, scalability, and real-world usability.
 
-At Armino Technologies, I worked on real-world products like diet subscription platforms and POS systems, where I improved app performance by 40%, integrated GraphQL/REST APIs, and implemented scalable state management. I also handled multi-language support, third-party SDKs, and end-to-end app releases, ensuring reliable user experiences.
+At Armino Technologies, I worked on multiple production-grade applications, including SaaS diet subscription platforms, POS systems, e-commerce apps, service booking tools, and field staff survey solutions. I revamped a legacy SaaS diet application using a clean, modular architecture and go_router navigation, reducing code size by 30%, improving performance by 40%, and resolving long-standing memory leak issues.
 
-Beyond Flutter, I’m continuously expanding my skills into backend and full-stack development with Node.js, Express, and databases. My goal is to deliver complete, end-to-end solutions — from clean code and smooth UIs to scalable backends that power impactful applications.  
+My work involved integrating REST and GraphQL APIs, optimizing data flows, implementing multilingual support, payments, and real-time notifications, and enhancing overall product reliability. I’ve also managed end-to-end app releases for both Google Play Store and Apple App Store, collaborating closely with product managers, QA teams, and developers to ensure smooth, high-quality deployments.
+
+Beyond mobile development, I’m actively expanding into backend engineering with ASP.NET Core, focusing on REST API design, authentication and authorization, database integration, and clean service-based architecture. This allows me to better understand system design end-to-end and build applications that are not only polished on the frontend, but also well-structured and scalable on the backend.
+
+I enjoy turning ideas into practical, production-ready products and continuously improving my skills by working on real-world problems.
 """;
+
 const myEn = "My";
 const viewProjectEn = "View Project";
 const seeMoreEn = "See More";
