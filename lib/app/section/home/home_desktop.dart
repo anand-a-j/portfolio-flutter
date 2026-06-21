@@ -3,9 +3,6 @@ import 'package:portfolio/app/section/home/widgets/home_button.dart';
 import 'package:portfolio/core/constants/app_consts.dart';
 import 'package:portfolio/core/constants/assets.dart';
 import 'package:portfolio/core/extension/textstyle_extension.dart';
-import 'package:portfolio/core/theme/app_text_theme.dart';
-import 'package:portfolio/core/utils/colors.dart';
-import 'package:portfolio/core/utils/functions.dart';
 import 'package:portfolio/core/utils/strings.dart';
 
 import '../../../core/providers/scroll_provider.dart';
@@ -55,17 +52,19 @@ class HomeDesktop extends StatelessWidget {
                   HomeHeroGridientText(
                     title: heroTitle,
                   ),
-                  SizedBox(
-                    width: 860,
-                    child: Text(
-                      heroSubtitle,
-                      textAlign: TextAlign.center,
-                      style: AppTextTheme.heroSubtitle.copyWith(
-                        fontSize: desktopFontSize(context: context),
-                        color: onPrimaryContainerDim,
-                      ),
-                    ),
-                  ),
+                  // SizedBox(
+                  //   width: 860,
+                  //   child: Text(
+                  //     heroSubtitle,
+                  //     textAlign: TextAlign.center,
+                  //     style: AppTextTheme.heroSubtitle.copyWith(
+                  //       fontSize: desktopFontSize(context: context),
+                  //       color: onPrimaryContainerDim,
+                  //     ),
+                  //   ),
+                  // ),
+
+                  const SizedBox(height: 1),
                   Row(
                     spacing: AppConsts.pMedium,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -80,7 +79,7 @@ class HomeDesktop extends StatelessWidget {
                       HomeButton(
                         title: letsConnect,
                         onTap: () {
-                            scrollProvider.jumpTo(3);
+                          scrollProvider.jumpTo(3);
                         },
                       ),
                     ],

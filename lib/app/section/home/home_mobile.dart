@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/section/home/widgets/home_button.dart';
-import 'package:portfolio/core/extension/color_extension.dart';
 import 'package:portfolio/core/extension/textstyle_extension.dart';
-import 'package:portfolio/core/utils/functions.dart';
 
 import '../../../core/constants/app_consts.dart';
 import '../../../core/constants/assets.dart';
 import '../../../core/providers/scroll_provider.dart';
-import '../../../core/theme/app_text_theme.dart';
 import '../../../core/utils/strings.dart';
 
 import '../../../core/widgets/animated_gradient_text.dart';
@@ -56,17 +53,19 @@ class HomeMobile extends StatelessWidget {
                   HomeHeroGridientText(
                     title: heroTitle,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 5),
-                    child: Text(
-                      heroSubtitleMobile,
-                      textAlign: TextAlign.center,
-                      style: AppTextTheme.heroSubtitle.copyWith(
-                        fontSize: mobileFontSize(context: context),
-                        color: context.brandColors.onPrimaryContainerDim,
-                      ),
-                    ),
-                  ),
+
+                  // Padding(
+                  //   padding: const EdgeInsets.symmetric(horizontal: 5),
+                  //   child: Text(
+                  //     heroSubtitleMobile,
+                  //     textAlign: TextAlign.center,
+                  //     style: AppTextTheme.heroSubtitle.copyWith(
+                  //       fontSize: mobileFontSize(context: context),
+                  //       color: context.brandColors.onPrimaryContainerDim,
+                  //     ),
+                  //   ),
+                  // ),
+                  const SizedBox(height: 1),
                   Column(
                     spacing: AppConsts.pMedium,
                     mainAxisAlignment: MainAxisAlignment.center,

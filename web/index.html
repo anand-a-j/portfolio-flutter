@@ -1,118 +1,135 @@
 <!DOCTYPE html>
 <html>
-  <style>
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-  background: #000000; 
-}
 
-.loader-circle-2 {
-  position: relative;
-  width: 70px;
-  height: 70px;
-  display: inline-block;
-}
-
-/* Outer and inner circles */
-.loader-circle-2:before,
-.loader-circle-2:after {
-  content: "";
-  display: block;
-  position: absolute;
-  border-width: 5px;
-  border-style: solid;
-  border-radius: 50%;
-}
-
-/* Outer circle — single color */
-.loader-circle-2:before {
-  width: 70px;
-  height: 70px;
-  border-bottom-color: #BC3CD8; 
-  border-right-color: #BC3CD8;  
-  border-top-color: transparent;
-  border-left-color: transparent;
-  animation: loader-circle-2-animation-2 1s linear infinite;
-}
-
-
-.loader-circle-2:after {
-  width: 40px;
-  height: 40px;
-  border-bottom-color: #C54B8C; 
-  border-right-color: #C54B8C;  
-  border-top-color: transparent;
-  border-left-color: transparent;
-  top: 22%;
-  left: 22%;
-  animation: loader-circle-2-animation 0.85s linear infinite;
-}
-
-/* Animations */
-@keyframes loader-circle-2-animation {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(-360deg); }
-}
-
-@keyframes loader-circle-2-animation-2 {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-  </style>
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
   <base href="$FLUTTER_BASE_HREF">
-
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+  <meta name="description" content="Developer Portfolio">
 
-  <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="portfolio">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="icon" type="image/png" href="favicon.png" />
 
-  <title>Anand A J | Flutter Developer</title>
+  <title>Anand A J | Developer</title>
   <link rel="manifest" href="manifest.json">
 
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #000000;
+   
+      overflow: hidden;
+
+    }
+
+    .loader-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .loader-glow {
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(188, 60, 216, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .premium-spinner {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, transparent 0%, transparent 20%, #BC3CD8 60%, #C54B8C 100%);
+      animation: spin 1s linear infinite;
+
+      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff 0);
+      mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff 0);
+    }
+
+    .spinner-core {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ffffff;
+      box-shadow: 0 0 12px #BC3CD8;
+      animation: breathe 1.5s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 0.4;
+      }
+
+      50% {
+        transform: scale(1.6);
+        opacity: 0.8;
+      }
+    }
+
+    @keyframes breathe {
+
+      0%,
+      100% {
+        transform: scale(0.8);
+        opacity: 0.6;
+      }
+
+      50% {
+        transform: scale(1.2);
+        opacity: 1;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<div class="loader-circle-2"></div>
+
+  <div class="loader-wrapper" id="app-loader">
+    <div class="loader-glow"></div>
+    <div class="premium-spinner"></div>
+    <div class="spinner-core"></div>
+  </div>
 
   <script src="flutter_bootstrap.js" async></script>
- <script>
+  <script>
+    // Removes the loader cleanly once Flutter renders the first frame
+    window.addEventListener('flutter-first-frame', function () {
+      const loader = document.getElementById('app-loader');
+      if (loader) {
+        // Added a slight scale-down effect as it fades out for extra polish
+        loader.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+        loader.style.opacity = '0';
+        loader.style.transform = 'scale(0.85)';
 
-  window.addEventListener('flutter-first-frame', function () {
-    const loader = document.querySelector('.loader-circle-2');
-    if (loader) {
-
-      loader.style.transition = 'opacity 0.5s ease';
-      loader.style.opacity = '0';
-
-      setTimeout(() => loader.remove(), 600);
-    }
-  });
-</script>
+        setTimeout(() => loader.remove(), 600);
+      }
+    });
+  </script>
 </body>
+
 </html>

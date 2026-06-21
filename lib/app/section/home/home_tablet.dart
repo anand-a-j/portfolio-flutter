@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/section/home/widgets/home_button.dart';
-import 'package:portfolio/core/extension/color_extension.dart';
 import 'package:portfolio/core/extension/textstyle_extension.dart';
-import 'package:portfolio/core/utils/functions.dart';
 
 import '../../../core/constants/app_consts.dart';
 import '../../../core/constants/assets.dart';
 import '../../../core/providers/scroll_provider.dart';
-import '../../../core/theme/app_text_theme.dart';
 import '../../../core/utils/strings.dart';
 import '../../../core/widgets/animated_gradient_text.dart';
 import 'widgets/star_background.dart';
@@ -55,14 +52,15 @@ class HomeTablet extends StatelessWidget {
                   HomeHeroGridientText(
                     title: heroTitle,
                   ),
-                  Text(
-                    heroSubtitle,
-                    textAlign: TextAlign.center,
-                    style: AppTextTheme.heroSubtitle.copyWith(
-                      fontSize: tabletFontSize(context: context),
-                      color: context.brandColors.onPrimaryContainerDim,
-                    ),
-                  ),
+                  // Text(
+                  //   heroSubtitle,
+                  //   textAlign: TextAlign.center,
+                  //   style: AppTextTheme.heroSubtitle.copyWith(
+                  //     fontSize: tabletFontSize(context: context),
+                  //     color: context.brandColors.onPrimaryContainerDim,
+                  //   ),
+                  // ),
+                  const SizedBox(height: 1),
                   Row(
                     spacing: AppConsts.pMedium,
                     mainAxisAlignment: MainAxisAlignment.center,

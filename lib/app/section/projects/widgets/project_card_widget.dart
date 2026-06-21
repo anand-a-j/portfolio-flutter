@@ -100,7 +100,7 @@ class ProjectCardWidget extends StatelessWidget {
                 GestureDetector(
                   onTap: () async {
                     final success =
-                        await openUrlLink(projects[index].githubLink);
+                        await openUrlLink(projects[index].primaryLink);
 
                     if (!success && context.mounted) {
                       showAppSnackBar(context, linkOpenErrorEn);
@@ -119,7 +119,7 @@ class ProjectCardWidget extends StatelessWidget {
                     ),
                     child: Center(
                       child: Text(
-                        viewOnGithubEn,
+                        projects[index].primaryLinkLabel,
                         style: context.bodyMedium.copyWith(
                           fontWeight: FontWeight.w500,
                           color: context.secondary,

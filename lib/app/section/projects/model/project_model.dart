@@ -3,16 +3,37 @@ class Project {
   final String description;
   final String imageUrl;
   final String githubLink;
+  final String playStoreLink;
 
   Project({
     required this.title,
     required this.description,
     required this.imageUrl,
     required this.githubLink,
+    this.playStoreLink = "",
   });
+
+  String get primaryLink =>
+      playStoreLink.isNotEmpty ? playStoreLink : githubLink;
+
+  String get primaryLinkLabel {
+    if (githubLink.isNotEmpty) return "View on GitHub";
+    if (playStoreLink.isNotEmpty) return "View on Play Store";
+
+    return "View Project";
+  }
 }
 
 List<Project> projects = [
+  Project(
+      title: 'Habit Tracker',
+      description:
+          'A Flutter habit tracker powered by Riverpod and Hive, featuring analytics, reminders, and full habit customization. Core logic is complete, with refinements in progress.',
+      imageUrl:
+          "https://res.cloudinary.com/dyicffrec/image/upload/v1760247557/shot_41_ylopf3.png",
+      githubLink: "",
+      playStoreLink:
+          "https://play.google.com/store/apps/details?id=com.habitbud.android"),
   Project(
     title: 'E Commerce App',
     description:
@@ -20,14 +41,6 @@ List<Project> projects = [
     imageUrl:
         "https://res.cloudinary.com/dyicffrec/image/upload/v1760100133/shot_59_zdfcjx.png",
     githubLink: "https://github.com/anand-a-j/e-commerce-user",
-  ),
-  Project(
-    title: 'Habit Tracker',
-    description:
-        'A Flutter habit tracker powered by Riverpod and Hive, featuring analytics, reminders, and full habit customization. Core logic is complete, with refinements in progress.',
-    imageUrl:
-        "https://res.cloudinary.com/dyicffrec/image/upload/v1760247557/shot_41_ylopf3.png",
-    githubLink: "https://github.com/anand-a-j/habitroot",
   ),
   Project(
     title: 'Social Media Application',

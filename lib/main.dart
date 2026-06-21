@@ -15,7 +15,6 @@ void main() {
         ChangeNotifierProvider(create: (context) => ContactFormProvider()),
         ChangeNotifierProvider(create: (context) => AnimateProvider()),
         ChangeNotifierProvider(create: (context) => MainSectionProvider()),
-
       ],
       child: const MyApp(),
     ),
@@ -23,12 +22,12 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});  
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Anand A J | Flutter Developer",
+      title: "Anand A J | Developer",
       themeMode: ThemeMode.dark,
       darkTheme: buildDarkTheme(),
       debugShowCheckedModeBanner: false,
